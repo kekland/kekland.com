@@ -1,0 +1,33 @@
+#landing-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#title {
+  display: flex;
+  flex-direction: column;
+}
+
+#socials {
+  display: flex;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
+
+.social-button {
+  width: 32px;
+  height: 32px;
+  opacity: 0.5;
+  transition: all ease-in-out 0.15s;
+}
+
+.social-button:hover {
+  width: 32px;
+  height: 32px;
+  opacity: 1.0;
+  transition: all ease-in-out 0.15s;
+}

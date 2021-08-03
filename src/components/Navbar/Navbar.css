@@ -1,0 +1,21 @@
+#navbar {
+  position: absolute;
+  top: 16px;
+  right: 0;
+  display: flex;
+}
+
+.navbar-item {
+  opacity: 0.5;
+  margin-right: 32px;
+  transition: all ease-in-out 0.15s;
+}
+
+.navbar-item:hover {
+  opacity: 1.0;
+}
+
+.navbar-selected {
+  color: var(--color-primary);
+  opacity: 1.0;
+}

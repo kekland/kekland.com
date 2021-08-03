@@ -1,0 +1,15 @@
+.switching-text {
+  position: relative;
+}
+
+.switching-text:after {
+  content:"";
+  animation: contents 4s linear infinite;
+}
+
+@keyframes contents {
+  0% {content: "software developer"}
+  33% {content: "robotics engineer"}
+  66% {content: "photographer"}
+  100% {content: "designer"}
+}
