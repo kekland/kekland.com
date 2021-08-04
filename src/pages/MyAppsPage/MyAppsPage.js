@@ -21,7 +21,7 @@ const AppCard = ({ data }) => {
   )
 }
 
-export const MyAppsPage = () => {
+export const MyAppsPage = ({titleRef}) => {
   const [apps, setApps] = useState(null);
 
   useEffect(async () => {
@@ -39,7 +39,7 @@ export const MyAppsPage = () => {
   }
 
   return (
-    <div id='my-apps' className='page page-grid'>
+    <div id='my-apps' className='page page-grid' ref={titleRef}>
       <FlyInAnimation>
         <p className='text-title text-primary'>my apps</p>
       </FlyInAnimation>

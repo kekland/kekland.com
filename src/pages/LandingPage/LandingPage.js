@@ -16,7 +16,7 @@ export const LandingPage = () => {
 
   const animatedTextClassName = `text-name ${animated ? 'text-name-animation' : ''}`;
   return (
-    <div id='landing-page'>
+    <div id='about-me'>
       <Background animate={animated} />
       <div id='title'>
         <span className='text-title unselectable' style={{ fontSize: '56px' }}>

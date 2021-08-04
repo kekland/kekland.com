@@ -7,9 +7,9 @@ import { ReactComponent as LogoGithub } from '../../icons/logo-github.svg'
 import { ReactComponent as LogoLinkedIn } from '../../icons/logo-linkedin.svg'
 import { ReactComponent as IconMail } from '../../icons/mail.svg'
 
-export const ContactMePage = () => {
+export const ContactMePage = ({titleRef}) => {
   return (
-    <div className='page'>
+    <div className='page' id='contact-me' ref={titleRef}>
       <FlyInAnimation>
         <p className='text-title text-primary'>contact me</p>
       </FlyInAnimation>

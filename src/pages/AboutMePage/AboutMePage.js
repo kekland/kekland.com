@@ -7,13 +7,13 @@ const hour = minute * 60
 const day = hour * 24
 const year = day * 365
 
-export const AboutMePage = () => {
+export const AboutMePage = ({titleRef}) => {
   const birthdate = (new Date(2002, 11, 7)).getTime()
   const now = Date.now()
   const age = ((now - birthdate) / year).toFixed(1)
 
   return (
-    <div className='page'>
+    <div className='page' ref={titleRef}>
       <FlyInAnimation>
         <p className='text-title text-primary'>about me</p>
       </FlyInAnimation>

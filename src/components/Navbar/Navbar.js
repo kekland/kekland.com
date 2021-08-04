@@ -3,17 +3,23 @@ import { useWindowScroll } from '../../hooks/useWindowScroll';
 import { useWindowSize } from '../../hooks/useWindowSize';
 import './Navbar.css';
 
-export const Navbar = () => {
+export const Navbar = ({ refs }) => {
   const scroll = useWindowScroll()
   const windowSize = useWindowSize()
 
-  const items = [
-    'about me',
-    'portfolio',
-    'contacts',
-  ];
+  const items = {
+    'about me': 'about-me',
+    'portfolio': 'my-apps',
+    'contacts': 'contact-me',
+  };
 
-  const selected = 0
+  let selected = 'about-me'
+
+  for (const ref of refs) {
+    if (ref.current && scroll + windowSize.height > ref.current.offsetTop) {
+      selected = ref.current.id
+    }
+  }
 
   const isLandingVisible = scroll < windowSize.height
 
@@ -21,10 +27,10 @@ export const Navbar = () => {
     <div id='navbar' className='text-title unselectable' style={{ backgroundColor: isLandingVisible ? 'transparent' : 'var(--color-background)' }}>
       <div style={{ flex: 1 }} />
       {
-        items.map((item, i) =>
-          <label className={`navbar-item ${i === selected ? 'navbar-selected' : ''}`}>
+        Object.keys(items).map((item) =>
+          <a className={`navbar-item ${items[item] === selected ? 'navbar-selected' : ''}`} href={`#${items[item]}`}>
             {item}
-          </label>
+          </a>
         )
       }
     </div>

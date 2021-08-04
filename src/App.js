@@ -8,17 +8,22 @@ import { MyReposPage } from './pages/MyReposPage/MyReposPage';
 import { ContactMePage } from './pages/ContactMePage/ContactMePage';
 import { FooterPage } from './pages/FooterPage/FooterPage';
 import { AboutMePage } from './pages/AboutMePage/AboutMePage';
+import { useRef } from 'react';
 
 function App() {
+  const aboutMeRef = useRef()
+  const portfolioRef = useRef()
+  const contactsRef = useRef()
+
   return (
     <div className="App">
-      <Navbar />
+      <Navbar refs={[aboutMeRef, portfolioRef, contactsRef]} />
       <Footer />
       <LandingPage />
-      <AboutMePage />
-      <MyAppsPage />
+      <AboutMePage titleRef={aboutMeRef} />
+      <MyAppsPage titleRef={portfolioRef} />
       <MyReposPage />
-      <ContactMePage />
+      <ContactMePage titleRef={contactsRef} />
       <FooterPage />
     </div>
   );
