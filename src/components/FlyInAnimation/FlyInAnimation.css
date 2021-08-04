@@ -1,0 +1,8 @@
+.fly-in {
+  animation: fly-in-animation ease-out 0.3s;
+}
+
+@keyframes fly-in-animation {
+  from {opacity: 0; transform: translateY(40%); }
+  to {opacity: 1; transform: translateY(0%); }
+}

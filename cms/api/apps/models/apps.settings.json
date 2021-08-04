@@ -44,6 +44,12 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "color": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
     }
   }
 }

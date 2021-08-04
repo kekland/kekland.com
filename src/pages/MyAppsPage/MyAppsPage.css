@@ -1,5 +1,4 @@
 #my-apps {
   display: flex;
   flex-direction: column;
-  padding: 24px;
 }

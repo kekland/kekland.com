@@ -4,6 +4,10 @@ import { LandingPage } from './pages/LandingPage/LandingPage';
 import { Navbar } from './components/Navbar/Navbar';
 import { MyAppsPage } from './pages/MyAppsPage/MyAppsPage';
 import { Footer } from './components/Footer/Footer';
+import { MyReposPage } from './pages/MyReposPage/MyReposPage';
+import { ContactMePage } from './pages/ContactMePage/ContactMePage';
+import { FooterPage } from './pages/FooterPage/FooterPage';
+import { AboutMePage } from './pages/AboutMePage/AboutMePage';
 
 function App() {
   return (
@@ -11,8 +15,11 @@ function App() {
       <Navbar />
       <Footer />
       <LandingPage />
+      <AboutMePage />
       <MyAppsPage />
-      <div style={{height: '200vh'}} />
+      <MyReposPage />
+      <ContactMePage />
+      <FooterPage />
     </div>
   );
 }

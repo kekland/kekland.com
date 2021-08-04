@@ -19,11 +19,7 @@ export const Navbar = () => {
 
   return (
     <div id='navbar' className='text-title unselectable' style={{ backgroundColor: isLandingVisible ? 'transparent' : 'var(--color-background)' }}>
-      <span className='navbar-title' style={{ opacity: isLandingVisible ? 0 : 1 }}>
-        Erzhan
-      </span>
-      <div style={{ flexGrow: '1' }} />
-
+      <div style={{ flex: 1 }} />
       {
         items.map((item, i) =>
           <label className={`navbar-item ${i === selected ? 'navbar-selected' : ''}`}>

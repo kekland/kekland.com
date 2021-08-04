@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useWindowSize } from '../../hooks/useWindowSize';
-import { useWindowScroll } from '../../hooks/useWindowScroll';
 
 import './Background.css';
 
@@ -9,9 +8,8 @@ import { ReactComponent as LandingArrow } from '../../icons/landing-arrow.svg';
 // Returns `0` if `t < 1`, returns `t` if `0 < t < 1`, returns `1` if `t > 1`.
 const clampNormalized = (t) => (t > 1) ? 1 : (t < 0) ? 0 : t;
 
-export const Background = () => {
+export const Background = ({animate}) => {
   const windowSize = useWindowSize();
-  // const scroll = useWindowScroll()
 
   const width = windowSize.width;
   const height = windowSize.height;
@@ -22,7 +20,7 @@ export const Background = () => {
 
   return (
     <>
-      <div id='circle' style={{
+      <div id='circle' className={animate ? 'circle-animation' : ''} style={{
         width: size,
         height: size,
         left: -size / 2,
@@ -30,7 +28,7 @@ export const Background = () => {
       }} />
       <LandingArrow class='landing-arrow' style={{
         position: 'absolute',
-        left: width / 2.25,
+        left: width / 2,
         top: 160.0,
         bottom: 0,
         height: (size / 2.5),

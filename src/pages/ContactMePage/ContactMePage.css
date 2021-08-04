@@ -1,0 +1,11 @@
+.contact-icon {
+  height: 40px;
+  margin-right: 16px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all ease-in-out 0.15s;
+}
+
+.contact-icon:hover {
+  opacity: 1;
+}

@@ -15,9 +15,13 @@ export const Footer = () => {
       visibility: isVisible ? 'visible' : 'hidden',
       opacity: isVisible ? 1 : 0,
     }}>
-      <img className='social-button' src={LogoLinkedIn} />
+      <a target="_blank" href='https://linkedin.com/in/kekland'>
+        <img className='social-button' src={LogoLinkedIn} />
+      </a>
       <div style={{ width: 16 }} />
-      <img className='social-button' src={LogoGithub} />
+      <a target="_blank" href='https://github.com/kekland'>
+        <img className='social-button' src={LogoGithub} />
+      </a>
     </div>
   );
 }

@@ -23,7 +23,7 @@ module.exports = async () => {
       name: v.name,
       description: v.description,
       language: v.language,
-      url: v.url,
+      url: `https://github.com/kekland/${v.name}`,
       color: GitHubColors.get(v.language, true).color,
       stars: v.stargazers_count,
     }))
