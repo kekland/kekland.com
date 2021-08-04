@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/robotics",
+      "handler": "robotics.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/robotics/count",
+      "handler": "robotics.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/robotics/:id",
+      "handler": "robotics.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/robotics",
+      "handler": "robotics.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/robotics/:id",
+      "handler": "robotics.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/robotics/:id",
+      "handler": "robotics.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
