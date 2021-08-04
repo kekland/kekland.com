@@ -8,3 +8,8 @@ body {
   font-family: 'Jost';
   font-weight: 600;
 }
+
+.text-primary {
+  color: var(--color-primary);
+  font-size: 36px;
+}

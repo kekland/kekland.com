@@ -1,14 +1,24 @@
 #navbar {
-  position: absolute;
-  top: 16px;
+  position: fixed;
   right: 0;
+  left: 0;
+  height: 48px;
+  padding-left: 16px;
+
   display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.navbar-title {
+  transition: all ease-in-out 0.45s;
 }
 
 .navbar-item {
   opacity: 0.5;
   margin-right: 32px;
   transition: all ease-in-out 0.15s;
+  cursor: pointer;
 }
 
 .navbar-item:hover {

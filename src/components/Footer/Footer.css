@@ -1,0 +1,22 @@
+.footer {
+  display: flex;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  transition: all ease-in-out 0.15s;
+}
+
+.social-button {
+  width: 32px;
+  height: 32px;
+  opacity: 0.5;
+  transition: all ease-in-out 0.15s;
+  cursor: pointer;
+}
+
+.social-button:hover {
+  width: 32px;
+  height: 32px;
+  opacity: 1.0;
+  transition: all ease-in-out 0.15s;
+}

@@ -1,6 +1,8 @@
 body {
-  background-color: #fafafa;
+  --color-background: #fafafa;
   --color-primary: #F64740;
+
+  background-color: var(--color-background);
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -18,4 +20,14 @@ code {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.page {
+  width: min(100vw, 1024px);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

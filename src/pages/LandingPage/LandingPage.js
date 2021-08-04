@@ -2,8 +2,6 @@ import React from 'react';
 import { Background } from './Background';
 import './LandingPage.css';
 
-import LogoGithub from '../../icons/logo-github.svg';
-import LogoLinkedIn from '../../icons/logo-linkedin.svg';
 import { SwitchingText } from './SwitchingText';
 
 export const LandingPage = () => {
@@ -30,11 +28,6 @@ export const LandingPage = () => {
             ]} />
           </span>
         </span>
-      </div>
-      <div id='socials'>
-        <img className='social-button' src={LogoLinkedIn} />
-        <div style={{ width: 16 }} />
-        <img className='social-button' src={LogoGithub} />
       </div>
     </div>
   );
