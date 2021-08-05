@@ -11,9 +11,7 @@ export const LandingPage = () => {
   const size = useWindowSize()
   const animated = useWindowScrollOnce()
 
-  const aspectRatio = size.width / size.height
-
-  if (aspectRatio <= 1.0) {
+  if (size.width < 1000) {
     return (
       <LandingPageMobile animated={animated} />
     )
@@ -21,7 +19,7 @@ export const LandingPage = () => {
 
   const animatedTextClassName = `text-name ${animated ? 'text-name-animation' : ''}`;
   return (
-    <div id='about-me'>
+    <div id='landing'>
       <Background animate={animated} withArrows />
       <div id='title'>
         <span className='text-title unselectable' style={{ fontSize: '56px' }}>

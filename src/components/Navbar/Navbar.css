@@ -30,6 +30,5 @@
 }
 
 .navbar-selected {
-  color: var(--color-primary);
   opacity: 1.0;
 }
