@@ -1,0 +1,30 @@
+{
+  "name": "strapi-plugin-run-function-button-plugin",
+  "version": "0.0.0",
+  "description": "This is the description of the plugin.",
+  "strapi": {
+    "name": "run-function-button-plugin",
+    "icon": "plug",
+    "description": "Description of run-function-button-plugin plugin."
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "author": {
+    "name": "A Strapi developer",
+    "email": "",
+    "url": ""
+  },
+  "maintainers": [
+    {
+      "name": "A Strapi developer",
+      "email": "",
+      "url": ""
+    }
+  ],
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

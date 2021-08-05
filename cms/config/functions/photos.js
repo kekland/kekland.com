@@ -63,8 +63,10 @@ module.exports = async () => {
     }
 
     strapi.log.debug(`GooglePhotos: Finished, saved ${responseImages.length} photos`)
+    return true
   }
   catch (e) {
     strapi.log.error(`GooglePhotos: Failed`, e)
+    return false
   }
 };

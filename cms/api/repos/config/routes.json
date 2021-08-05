@@ -7,6 +7,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/repos/update",
+      "handler": "repos.update",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

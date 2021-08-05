@@ -41,8 +41,10 @@ module.exports = async () => {
     }
 
     strapi.log.debug(`GitHub: Finished, added ${repos.length} repos`)
+    return true
   }
   catch (e) {
     strapi.log.error(`GitHub: Failed`, e)
+    return false
   }
 };
