@@ -1,9 +1,13 @@
 .gallery-page-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 16px;
+  grid-gap: 8px;
 
   overflow: visible;
+
+  box-sizing: border-box;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .gallery-page-item {
