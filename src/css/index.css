@@ -1,5 +1,5 @@
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
@@ -29,21 +29,29 @@ code {
 }
 
 .page {
+  background-color: var(--color-background);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-width {
+  width: min(100vw, 1024px);
+}
+
+.section {
   box-sizing: border-box;
   width: min(100vw, 1024px);
   padding: 24px;
 }
 
-.page-grid {
+.section-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 16px;
-}
-
-.App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 a {
@@ -56,4 +64,14 @@ a:visited {
   text-decoration: inherit;
   color: inherit;
   cursor: auto;
+}
+
+.fade-enter {
+  transition: all 250ms ease-in;
+  opacity: 0;
+  z-index: 1001;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
 }

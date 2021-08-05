@@ -1,30 +1,26 @@
 import './css/index.css';
 import './css/fonts.css';
-import { LandingPage } from './pages/LandingPage/LandingPage';
-import { Navbar } from './components/Navbar/Navbar';
-import { MyAppsPage } from './pages/MyAppsPage/MyAppsPage';
-import { Footer } from './components/Footer/Footer';
-import { MyReposPage } from './pages/MyReposPage/MyReposPage';
-import { ContactMePage } from './pages/ContactMePage/ContactMePage';
-import { FooterPage } from './pages/FooterPage/FooterPage';
-import { AboutMePage } from './pages/AboutMePage/AboutMePage';
-import { useRef } from 'react';
+import { Route, Switch, useLocation } from 'react-router-dom';
+import { MainPage } from './pages/MainPage/MainPage';
+import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { AppPage } from './pages/AppPage/AppPage';
+import ScrollToTop from './hooks/scrollToTop';
+import { PhotoPage } from './pages/PhotoPage/PhotoPage';
+import { GalleryPage } from './pages/GalleryPage/GalleryPage';
 
 function App() {
-  const aboutMeRef = useRef()
-  const portfolioRef = useRef()
-  const contactsRef = useRef()
+  const location = useLocation();
 
   return (
     <div className="App">
-      <Navbar refs={[aboutMeRef, portfolioRef, contactsRef]} />
-      <Footer />
-      <LandingPage />
-      <AboutMePage titleRef={aboutMeRef} />
-      <MyAppsPage titleRef={portfolioRef} />
-      <MyReposPage />
-      <ContactMePage titleRef={contactsRef} />
-      <FooterPage />
+      <Switch location={location}>
+        <Route exact path='/' component={MainPage} />
+        <Route path='/app/:id' component={AppPage} />
+        <Route exact path='/gallery' component={GalleryPage} />
+        <Route path='/photo/:id' component={PhotoPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
     </div>
   );
 }

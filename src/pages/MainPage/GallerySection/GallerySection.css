@@ -1,0 +1,26 @@
+.gallery-grid {
+  display: flex;
+  flex-direction: row;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.gallery-item {
+  width: 240px;
+  height: 240px;
+  margin-right: 16px;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all ease-in-out 0.15s;
+}
+
+.gallery-img:hover {
+  border-radius: 0px;
+  filter: brightness(85%);
+}

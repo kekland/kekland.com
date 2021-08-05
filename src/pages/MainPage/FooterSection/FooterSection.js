@@ -1,9 +1,9 @@
 import React from 'react'
-import './FooterPage.css'
+import './FooterSection.css'
 
-import { ReactComponent as IconCodeSlash } from '../../icons/code-slash.svg'
+import { ReactComponent as IconCodeSlash } from '../../../icons/code-slash.svg'
 
-export const FooterPage = () => {
+export const FooterSection = () => {
   return (
     <div className='footer-section'>
       <span style={{ opacity: 0.5 }}>Built with &lt;3 by <b>kekland</b></span>

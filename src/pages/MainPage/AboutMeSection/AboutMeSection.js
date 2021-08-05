@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlyInAnimation } from '../../components/FlyInAnimation/FlyInAnimation';
+import { FlyInAnimation } from '../../../components/FlyInAnimation/FlyInAnimation';
 
 const second = 1000
 const minute = second * 60
@@ -7,13 +7,13 @@ const hour = minute * 60
 const day = hour * 24
 const year = day * 365
 
-export const AboutMePage = ({ titleRef }) => {
+export const AboutMeSection = ({ titleRef }) => {
   const birthdate = (new Date(2002, 11, 7)).getTime()
   const now = Date.now()
   const age = ((now - birthdate) / year).toFixed(1)
 
   return (
-    <div className='page' id='about-me' ref={titleRef}>
+    <div className='section' id='about-me' ref={titleRef}>
       <FlyInAnimation>
         <p className='text-title text-primary'>about me</p>
       </FlyInAnimation>

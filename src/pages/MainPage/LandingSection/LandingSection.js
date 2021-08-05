@@ -1,19 +1,19 @@
 import React from 'react';
 import { Background } from './Background';
-import { useWindowScrollOnce } from '../../hooks/useWindowScroll';
+import { useWindowScrollOnce } from '../../../hooks/useWindowScroll';
 
-import './LandingPage.css';
+import './LandingSection.css';
 
 import { SwitchingText } from './SwitchingText';
-import { useWindowSize } from '../../hooks/useWindowSize';
+import { useWindowSize } from '../../../hooks/useWindowSize';
 
-export const LandingPage = () => {
+export const LandingSection = () => {
   const size = useWindowSize()
   const animated = useWindowScrollOnce()
 
   if (size.width < 1000) {
     return (
-      <LandingPageMobile animated={animated} />
+      <LandingSectionMobile animated={animated} />
     )
   }
 
@@ -46,7 +46,7 @@ export const LandingPage = () => {
   );
 }
 
-export const LandingPageMobile = ({ animated }) => {
+export const LandingSectionMobile = ({ animated }) => {
   const animatedTextClassName = `text-name ${animated ? 'text-name-animation' : ''}`;
 
   return (

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import './MyReposPage.css'
+import './MyReposSection.css'
 
-import { loadRepos } from '../../api/api'
-import { Card, ShimmerCard } from '../../components/Card/Card'
-import { ReactComponent as StarIcon } from '../../icons/star-outline.svg'
-import { FlyInAnimation } from '../../components/FlyInAnimation/FlyInAnimation'
+import { loadRepos } from '../../../api/api'
+import { Card, ShimmerCard } from '../../../components/Card/Card'
+import { ReactComponent as StarIcon } from '../../../icons/star-outline.svg'
+import { FlyInAnimation } from '../../../components/FlyInAnimation/FlyInAnimation'
 
 const RepoCard = ({ data }) => {
   return (
@@ -27,12 +27,11 @@ const RepoCard = ({ data }) => {
   )
 }
 
-export const MyReposPage = () => {
+export const MyReposSection = () => {
   const [repos, setRepos] = useState(null);
 
-  useEffect(async () => {
-    const result = await loadRepos()
-    setRepos(result);
+  useEffect(() => {
+    loadRepos().then(setRepos)
   }, []);
 
   const itemCount = 8
@@ -49,11 +48,11 @@ export const MyReposPage = () => {
   }
 
   return (
-    <div className='page'>
+    <div className='section'>
       <FlyInAnimation>
         <p className='text-title text-primary'>my repositories</p>
       </FlyInAnimation>
-      <div className='repos page-grid'>
+      <div className='repos section-grid'>
         {children}
       </div>
     </div>

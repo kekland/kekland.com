@@ -1,15 +1,14 @@
 import React from 'react'
-import { FlyInAnimation } from '../../components/FlyInAnimation/FlyInAnimation'
-import './ContactMePage.css'
+import { FlyInAnimation } from '../../../components/FlyInAnimation/FlyInAnimation'
+import './ContactMeSection.css'
 
-import { ReactComponent as LogoDiscord } from '../../icons/logo-discord.svg'
-import { ReactComponent as LogoGithub } from '../../icons/logo-github.svg'
-import { ReactComponent as LogoLinkedIn } from '../../icons/logo-linkedin.svg'
-import { ReactComponent as IconMail } from '../../icons/mail.svg'
+import { ReactComponent as LogoGithub } from '../../../icons/logo-github.svg'
+import { ReactComponent as LogoLinkedIn } from '../../../icons/logo-linkedin.svg'
+import { ReactComponent as IconMail } from '../../../icons/mail.svg'
 
-export const ContactMePage = ({titleRef}) => {
+export const ContactMeSection = ({titleRef}) => {
   return (
-    <div className='page' id='contact-me' ref={titleRef}>
+    <div className='section' id='contact-me' ref={titleRef}>
       <FlyInAnimation>
         <p className='text-title text-primary'>contact me</p>
       </FlyInAnimation>

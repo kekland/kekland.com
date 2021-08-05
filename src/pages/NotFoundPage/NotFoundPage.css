@@ -1,0 +1,23 @@
+.not-found-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-page-items {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.not-found-icon {
+  width: 48px;
+  position: absolute;
+  left: -56px;
+  top: -4px;
+  opacity: 0.25;
+}

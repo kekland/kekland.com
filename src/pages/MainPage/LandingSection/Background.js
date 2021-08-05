@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useWindowSize } from '../../hooks/useWindowSize';
+import { useWindowSize } from '../../../hooks/useWindowSize';
 
 import './Background.css';
 
-import { ReactComponent as LandingArrow } from '../../icons/landing-arrow.svg';
+import { ReactComponent as LandingArrow } from '../../../icons/landing-arrow.svg';
 
 // Returns `0` if `t < 1`, returns `t` if `0 < t < 1`, returns `1` if `t > 1`.
 const clampNormalized = (t) => (t > 1) ? 1 : (t < 0) ? 0 : t;

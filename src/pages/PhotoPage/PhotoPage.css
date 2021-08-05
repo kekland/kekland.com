@@ -1,0 +1,21 @@
+.photo-page {
+  background-color: #000000;
+  color: #ffffff;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-page-photo {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+}
+
+.photo-page-navbar {
+  position: absolute;
+  top: 0;
+}

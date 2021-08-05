@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import './MyAppsPage.css'
+import './MyAppsSection.css'
 
-import { Card, ShimmerCard } from '../../components/Card/Card'
-import { loadMyApps, getImageUrl } from '../../api/api'
-import { FlyInAnimation } from '../../components/FlyInAnimation/FlyInAnimation'
+import { Card, ShimmerCard } from '../../../components/Card/Card'
+import { loadMyApps, getImageUrl } from '../../../api/api'
+import { FlyInAnimation } from '../../../components/FlyInAnimation/FlyInAnimation'
+import { Link } from 'react-router-dom'
 
 
 const AppCard = ({ data }) => {
   return (
     <FlyInAnimation>
-      <a target="_blank" href={data.url}>
+      <a href={data.url} target='_blank'>
         <Card
           title={data.title}
           description={data.description}
@@ -21,12 +22,11 @@ const AppCard = ({ data }) => {
   )
 }
 
-export const MyAppsPage = ({titleRef}) => {
+export const MyAppsSection = ({titleRef}) => {
   const [apps, setApps] = useState(null);
 
-  useEffect(async () => {
-    const result = await loadMyApps()
-    setApps(result);
+  useEffect(() => {
+    loadMyApps().then(setApps)
   }, []);
 
   let children
@@ -39,11 +39,11 @@ export const MyAppsPage = ({titleRef}) => {
   }
 
   return (
-    <div id='my-apps' className='page page-grid' ref={titleRef}>
+    <div id='my-apps' className='section' ref={titleRef}>
       <FlyInAnimation>
         <p className='text-title text-primary'>my apps</p>
       </FlyInAnimation>
-      <div className='apps page-grid'>
+      <div className='apps section-grid'>
         {children}
       </div>
     </div>
