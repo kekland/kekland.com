@@ -1,6 +1,7 @@
 const axios = require('axios');
 const { google } = require('googleapis');
 const Photos = require('googlephotos');
+const Instagram = require('instagram-web-api')
 
 module.exports = async () => {
   strapi.log.debug('GooglePhotos: Starting')
@@ -51,18 +52,49 @@ module.exports = async () => {
       }
     }
 
+    let instagramUploads = []
+    for (const image of responseImages) {
+      const entity = await strapi.query('photo').findOne({ gphotosId: image.id })
+      if (!entity) instagramUploads = [...instagramUploads, image]
+    }
+
     await strapi.query('photo').delete()
 
     for (const image of responseImages) {
-      await strapi.query('photo').create({
+      const photoData = {
         gphotosId: image.id,
         thumbnailUrl: `${image.baseUrl}=w500`,
         url: `${image.baseUrl}=w10000`,
         takenAt: Date.parse(image.mediaMetadata.creationTime)
-      })
+      }
+
+      const entity = await strapi.query('photo').create(photoData)
+      image.id = entity.id
     }
 
     strapi.log.debug(`GooglePhotos: Finished, saved ${responseImages.length} photos`)
+
+    if (instagramUploads.length > 0) {
+      strapi.log.debug(`Instagram: Starting ${instagramUploads.length} Instagram uploads`)
+
+      const instagram = new Instagram({
+        username: strapi.config.get('server.instagram.username'),
+        password: strapi.config.get('server.instagram.password'),
+      })
+
+      await instagram.login()
+
+      for (const image of instagramUploads) {
+        await instagram.uploadPhoto({
+          photo: `${image.baseUrl}=w1080`,
+          caption: `https://kekland.com/photo/${image.id}`,
+          post: 'feed',
+        })
+      }
+
+      strapi.log.debug(`Instagram: Finished uploads`)
+    }
+
     return true
   }
   catch (e) {

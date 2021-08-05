@@ -13,6 +13,10 @@ module.exports = ({ env }) => ({
     refreshToken: env('GAPI_REFRESH_TOKEN', ''),
     albumId: env('GAPI_ALBUM_ID', '')
   },
+  instagram: {
+    username: env('INST_USERNAME', ''),
+    password: env('INST_PASSWORD', ''),
+  },
   admin: {
     auth: {
       secret: env('ADMIN_JWT_SECRET', 'bbca155a2dd0b4378b4f56292c508f78'),
