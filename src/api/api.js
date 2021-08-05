@@ -1,4 +1,4 @@
-const endpoint = 'https://kekland.com/api';
+const endpoint = 'http://localhost:1337';
 
 export const getImageUrl = (img) => {
   return `${endpoint}${img.url}`

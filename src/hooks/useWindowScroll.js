@@ -25,8 +25,10 @@ export const useWindowScrollOnce = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setWindowScroll(true);
-      window.removeEventListener("scroll", handleScroll);
+      if (window.scrollY > 0) {
+        setWindowScroll(true);
+        window.removeEventListener("scroll", handleScroll);
+      }
     }
 
     window.addEventListener("scroll", handleScroll);
