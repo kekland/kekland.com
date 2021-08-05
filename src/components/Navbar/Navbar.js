@@ -21,10 +21,10 @@ export const Navbar = ({ refs }) => {
     }
   }
 
-  const isLandingVisible = scroll < windowSize.height
+  const isTransparent = scroll < windowSize.height
 
   return (
-    <div id='navbar' className='text-title unselectable' style={{ backgroundColor: isLandingVisible ? 'transparent' : 'var(--color-background)' }}>
+    <div id='navbar' className='text-title unselectable' style={{ backgroundColor: isTransparent ? 'transparent' : 'var(--color-background)' }}>
       <div style={{ flex: 1 }} />
       {
         Object.keys(items).map((item) =>

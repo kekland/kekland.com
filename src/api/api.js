@@ -8,7 +8,6 @@ export const loadMyApps = async () => {
   const response = await fetch(`${endpoint}/apps`)
   const data = await response.json()
   
-  console.log(data)
   return data
 }
 
