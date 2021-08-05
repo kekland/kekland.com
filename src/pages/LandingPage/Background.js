@@ -15,8 +15,7 @@ export const Background = ({animate}) => {
   const height = windowSize.height;
 
   const size = Math.min(width, height * 2);
-
-  const scrollExtent = 0.0 //clampNormalized(scroll / 240.0)
+  console.log(size)
 
   return (
     <>
@@ -26,13 +25,13 @@ export const Background = ({animate}) => {
         left: -size / 2,
         top: (-size / 2),
       }} />
-      <LandingArrow class='landing-arrow' style={{
+      <LandingArrow className='landing-arrow' style={{
         position: 'absolute',
         left: width / 2,
         top: 160.0,
         bottom: 0,
         height: (size / 2.5),
-        opacity: 1.0 - scrollExtent,
+        opacity: 1.0,
       }} />
     </>
   );

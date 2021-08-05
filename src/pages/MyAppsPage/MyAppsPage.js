@@ -32,10 +32,10 @@ export const MyAppsPage = ({titleRef}) => {
   let children
 
   if (apps) {
-    children = apps.map((app) => <AppCard data={app} />)
+    children = apps.map((app) => <AppCard data={app} key={app.id} />)
   }
   else {
-    children = Array.apply(null, { length: 2 }).map((_) => <ShimmerCard />)
+    children = Array.apply(null, { length: 2 }).map((_, i) => <ShimmerCard key={i} />)
   }
 
   return (

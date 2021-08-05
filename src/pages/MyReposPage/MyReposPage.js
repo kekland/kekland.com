@@ -40,11 +40,11 @@ export const MyReposPage = () => {
 
   if (repos) {
     const sortedRepos = [...repos].sort((a, b) => b.stars - a.stars).slice(0, itemCount)
-    children = sortedRepos.map((v) => <RepoCard data={v} />)
+    children = sortedRepos.map((v) => <RepoCard data={v} key={v.id} />)
   }
   else {
-    children = Array.apply(null, { length: itemCount }).map((_) =>
-      <ShimmerCard bottomItemHeight={30} />
+    children = Array.apply(null, { length: itemCount }).map((_, i) =>
+      <ShimmerCard bottomItemHeight={30} key={i} />
     );
   }
 

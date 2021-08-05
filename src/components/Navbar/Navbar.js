@@ -28,7 +28,10 @@ export const Navbar = ({ refs }) => {
       <div style={{ flex: 1 }} />
       {
         Object.keys(items).map((item) =>
-          <a className={`navbar-item ${items[item] === selected ? 'navbar-selected' : ''}`} href={`#${items[item]}`}>
+          <a
+            key={item}
+            className={`navbar-item ${items[item] === selected ? 'navbar-selected' : ''}`}
+            href={`#${items[item]}`}>
             {item}
           </a>
         )

@@ -4,6 +4,7 @@
   background-color: var(--color-primary);
   z-index: -1;
   transform: scale(3);
+  animation-fill-mode: forwards;
 }
 
 .circle-animation {

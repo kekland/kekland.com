@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 import { Background } from './Background';
-import { useWindowScroll } from '../../hooks/useWindowScroll';
+import { useWindowScroll, useWindowScrollOnce } from '../../hooks/useWindowScroll';
 
 import './LandingPage.css';
 
 import { SwitchingText } from './SwitchingText';
 
 export const LandingPage = () => {
-  const [animated, setAnimated] = useState(false)
-  const scroll = useWindowScroll()
-
-  if (scroll > 0 && !animated) {
-    setAnimated(true)
-  }
+  const animated = useWindowScrollOnce()
 
   const animatedTextClassName = `text-name ${animated ? 'text-name-animation' : ''}`;
   return (

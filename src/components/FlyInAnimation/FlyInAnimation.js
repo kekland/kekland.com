@@ -4,7 +4,7 @@ import './FlyInAnimation.css'
 
 export const FlyInAnimation = ({ children }) => {
   return (
-    <ScrollAnimation animateIn="fly-in" animateOnce duration="0.6s">
+    <ScrollAnimation animateIn="fly-in" animateOnce duration={0.3}>
       {children}
     </ScrollAnimation>
   )
