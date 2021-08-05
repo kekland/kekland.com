@@ -50,7 +50,7 @@ export const LandingPageMobile = ({ animated }) => {
   const animatedTextClassName = `text-name ${animated ? 'text-name-animation' : ''}`;
 
   return (
-    <div id='about-me'>
+    <div id='landing'>
       <Background animate={animated} />
       <div id='title'>
         <span className='text-title unselectable' style={{ fontSize: '36px' }}>
