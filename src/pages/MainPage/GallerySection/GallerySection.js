@@ -15,7 +15,7 @@ const GalleryItem = ({ data }) => {
         {
           data ?
             <Link to={`/photo/${data.id}`}>
-              <img src={getImageSmallUrl(data.image)} className='gallery-img' />
+              <img src={data.thumbnailUrl} className='gallery-img' />
             </Link> :
             <div className='gallery-img' style={{ backgroundColor: '#ececec' }} />
         }

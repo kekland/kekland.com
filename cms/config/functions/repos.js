@@ -2,15 +2,16 @@ const axios = require('axios');
 const GitHubColors = require('github-colors')
 
 module.exports = async () => {
+  strapi.log.debug(`GitHub: Starting`)
   try {
-    let repoData = []
+    const username = strapi.config.get('server.github.username')
 
+    let repoData = []
     let page = 1
 
     // Get all GitHub repositories
     while (true) {
-      const { data } = await axios.get(`https://api.github.com/users/kekland/repos?page=${page}`);
-      console.log(data.length)
+      const { data } = await axios.get(`https://api.github.com/users/${username}/repos?page=${page}`);
 
       if (data.length === 0) break
 
@@ -23,7 +24,7 @@ module.exports = async () => {
       name: v.name,
       description: v.description,
       language: v.language,
-      url: `https://github.com/kekland/${v.name}`,
+      url: `https://github.com/${username}/${v.name}`,
       color: GitHubColors.get(v.language, true).color,
       stars: v.stargazers_count,
     }))
@@ -38,8 +39,10 @@ module.exports = async () => {
     for (const repo of repos) {
       await strapi.query('repos').create(repo)
     }
+
+    strapi.log.debug(`GitHub: Finished, added ${repos.length} repos`)
   }
   catch (e) {
-    console.error(e)
+    strapi.log.error(`GitHub: Failed`, e)
   }
 };

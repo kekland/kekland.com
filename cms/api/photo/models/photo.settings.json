@@ -2,26 +2,26 @@
   "kind": "collectionType",
   "collectionName": "photos",
   "info": {
-    "name": "photo"
+    "name": "photo",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true,
-    "draftAndPublish": true
+    "timestamps": true
   },
   "pluginOptions": {},
   "attributes": {
-    "image": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false,
-      "pluginOptions": {}
+    "gphotosId": {
+      "type": "string"
+    },
+    "thumbnailUrl": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "takenAt": {
+      "type": "integer"
     }
   }
 }

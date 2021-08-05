@@ -12,6 +12,8 @@
   "devDependencies": {},
   "dependencies": {
     "github-colors": "^2.2.19",
+    "googleapis": "^83.0.0",
+    "googlephotos": "^0.3.4",
     "knex": "0.21.18",
     "sqlite3": "5.0.0",
     "strapi": "3.6.5",

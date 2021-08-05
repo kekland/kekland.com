@@ -12,4 +12,5 @@
 
 module.exports = () => {
   strapi.config.functions.repos();
+  strapi.config.functions.photos();
 };

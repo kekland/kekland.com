@@ -73,7 +73,7 @@ export const loadRepos = async () => {
 }
 
 export const loadLatestPhotos = async () => {
-  const response = await fetch(`${endpoint}/photos?_sort=published_at:desc&_limit=5`)
+  const response = await fetch(`${endpoint}/photos?_sort=takenAt:desc&_limit=5`)
   const data = await response.json()
 
   return data
@@ -87,7 +87,7 @@ export const loadSinglePhoto = async (id) => {
 }
 
 export const loadPhotos = async (skip) => {
-  const response = await fetch(`${endpoint}/photos?_sort=published_at:desc&_limit=4&_start=${skip}`)
+  const response = await fetch(`${endpoint}/photos?_sort=takenAt:desc&_limit=4&_start=${skip}`)
   const data = await response.json()
 
   return data

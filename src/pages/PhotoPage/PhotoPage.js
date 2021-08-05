@@ -18,7 +18,7 @@ export const PhotoPage = () => {
         <ModalNavbar backgroundColor='transparent' />
       </div>
       {
-        photo ? <img src={getImageUrl(photo.image)} className='photo-page-photo' /> : <></>
+        photo ? <img src={photo.url} className='photo-page-photo' /> : <></>
       }
 
     </div>

@@ -6,13 +6,14 @@ import { ModalNavbar } from '../../components/Navbar/Navbar'
 import './GalleryPage.css'
 
 const GalleryItem = ({ data }) => {
+  console.log(data)
   return (
     <div className='gallery-page-item'>
       <div className='gallery-page-item-child'>
         {
           data ?
             <Link to={`/photo/${data.id}`}>
-              <img src={getImageMediumUrl(data.image)} className='gallery-page-img' />
+              <img src={data.thumbnailUrl} className='gallery-page-img' />
             </Link> :
             <div className='gallery-page-img' style={{ backgroundColor: '#bdbdbd' }} />
         }

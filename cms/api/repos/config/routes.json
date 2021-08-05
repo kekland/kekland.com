@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/repos",
+      "handler": "repos.find",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
