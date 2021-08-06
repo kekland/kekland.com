@@ -69,8 +69,7 @@ module.exports = async () => {
         takenAt: Date.parse(image.mediaMetadata.creationTime)
       }
 
-      const entity = await strapi.query('photo').create(photoData)
-      image.id = entity.id
+      await strapi.query('photo').create(photoData)
     }
 
     strapi.log.debug(`GooglePhotos: Finished, saved ${responseImages.length} photos`)

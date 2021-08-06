@@ -71,6 +71,11 @@ export const loadSinglePhoto = async (id) => {
   return data
 }
 
+export const loadSinglePhotoByGooglePhotoId = async (id) => {
+  const data = await makeRequest(`/photos?gphotosId=${id}`)
+  return data[0]
+}
+
 export const loadPhotos = async (skip) => {
   const data = await makeRequest(`/photos?_sort=takenAt:desc&_limit=4&_start=${skip}`)
   return data
