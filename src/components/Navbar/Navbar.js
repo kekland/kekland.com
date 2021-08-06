@@ -60,7 +60,10 @@ export const ModalNavbar = ({ title, preferredBackLocation, parent, backgroundCo
 
   const scroll = useWindowScroll();
   const scrollEffectHeight = 240;
-  const scrollEffect = useScrollEffects ? Math.max(1.0 - scroll / scrollEffectHeight, 0.0) : 0.0
+
+  // Calculate and clamp scrollEffect to [0, 1]
+  let scrollEffect = useScrollEffects ? Math.max(1.0 - scroll / scrollEffectHeight, 0.0) : 0.0
+  scrollEffect = Math.min(scrollEffect, 1.0)
 
   const marginLeft = width - 1024 >= 40 ? 0 : Math.max(40, width - 1024)
 
