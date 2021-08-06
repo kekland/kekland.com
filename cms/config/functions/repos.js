@@ -34,6 +34,7 @@ module.exports = async () => {
 
     // Remove every repository saved in the database
     await strapi.query('repos').delete()
+    await strapi.connections.default.raw(`UPDATE SQLITE_SEQUENCE SET SEQ=0 WHERE NAME='repos';`)
 
     // Re-add the new repositories
     for (const repo of repos) {

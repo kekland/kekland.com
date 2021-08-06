@@ -59,6 +59,7 @@ module.exports = async () => {
     }
 
     await strapi.query('photo').delete()
+    await strapi.connections.default.raw(`UPDATE SQLITE_SEQUENCE SET SEQ=0 WHERE NAME='photos';`)
 
     for (const image of responseImages) {
       const photoData = {
