@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { getImageMediumUrl, getImageSmallUrl, loadPhotos } from '../../api/api'
 import { FlyInAnimation } from '../../components/FlyInAnimation/FlyInAnimation'
 import { ModalNavbar } from '../../components/Navbar/Navbar'
+import { FooterSection } from '../MainPage/FooterSection/FooterSection'
 import './GalleryPage.css'
 
 const GalleryItem = ({ data }) => {
@@ -67,7 +68,8 @@ export const GalleryPage = () => {
 
   return (
     <div className='page'>
-      <ModalNavbar title='Gallery' parent='/' />
+      <ModalNavbar title='Gallery' parent='/' useScrollEffects />
+      <div style={{height: 240}} />
       <div className='column' style={{ padding: 24 }}>
         <div className='content-width gallery-page-grid' style={{ marginTop: 40 }}>
           {listItems.map((v) => (
@@ -75,6 +77,7 @@ export const GalleryPage = () => {
           ))}
         </div>
       </div>
+      <FooterSection />
     </div>
   );
 }

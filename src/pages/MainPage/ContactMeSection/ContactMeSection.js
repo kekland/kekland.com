@@ -13,9 +13,9 @@ export const ContactMeSection = ({titleRef}) => {
         <p className='text-title text-primary'>contact me</p>
       </FlyInAnimation>
       <FlyInAnimation>
-        <a target="_blank" href='mailto:kk.erzhan@gmail.com'><IconMail className='contact-icon' /></a>
-        <a target="_blank" href='https://github.com/kekland'><LogoGithub className='contact-icon' /></a>
-        <a target="_blank" href='https://linkedin.com/in/kekland'><LogoLinkedIn className='contact-icon' /></a>
+        <a target="_blank" href='mailto:kk.erzhan@gmail.com'><IconMail className='contact-icon icon' /></a>
+        <a target="_blank" href='https://github.com/kekland'><LogoGithub className='contact-icon icon' /></a>
+        <a target="_blank" href='https://linkedin.com/in/kekland'><LogoLinkedIn className='contact-icon icon' /></a>
       </FlyInAnimation>
     </div>
   )

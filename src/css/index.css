@@ -2,16 +2,45 @@ html {
   scroll-behavior: auto;
 }
 
-body {
+.App-light {
   --color-background: #fafafa;
+  --color-foreground: #ffffff;
+  --color-text: #000000;
   --color-primary: #FFBE0B;
+}
 
-  background-color: var(--color-background);
+.App-dark {
+  --color-background: #0a0a0a;
+  --color-foreground: #000000;
+  --color-text: #ffffff;
+  --color-primary: #efaf00;
+}
+
+body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   overflow-x: hidden;
+}
+
+.icon {
+  fill: var(--color-text);
+}
+
+.App {
+  color: var(--color-text);
+}
+
+.App-background {
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
+  position: fixed;
+  background-color: var(--color-background);
+  transition: background-color ease-in-out 0.3s;
 }
 
 code {
@@ -30,6 +59,7 @@ code {
 
 .page {
   background-color: var(--color-background);
+  transition: background-color ease-in-out 0.3s;
 }
 
 .column {

@@ -5,6 +5,7 @@
   z-index: -1;
   transform: scale(3);
   animation-fill-mode: forwards;
+  transition: background-color ease-in-out 0.3s;
 }
 
 .circle-animation {
@@ -25,6 +26,7 @@
 .landing-arrow > * {
   fill: var(--color-primary) !important;
   transform-origin: center;
+  transition: fill ease-in-out 0.3s;
 }
 
 @keyframes circle-flyin {

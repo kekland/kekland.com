@@ -7,6 +7,7 @@ import { FlyInAnimation } from '../../../components/FlyInAnimation/FlyInAnimatio
 import { Link } from 'react-router-dom'
 
 import { ReactComponent as ChevronRightIcon } from '../../../icons/chevron-forward-outline.svg'
+import { FooterSection } from '../FooterSection/FooterSection'
 
 const GalleryItem = ({ data }) => {
   return (

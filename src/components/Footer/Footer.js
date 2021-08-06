@@ -1,8 +1,8 @@
 import React from 'react'
 import './Footer.css'
 
-import LogoGithub from '../../icons/logo-github.svg';
-import LogoLinkedIn from '../../icons/logo-linkedin.svg';
+import { ReactComponent as LogoGithub } from '../../icons/logo-github.svg';
+import { ReactComponent as LogoLinkedIn } from '../../icons/logo-linkedin.svg';
 import { useWindowScroll } from '../../hooks/useWindowScroll';
 
 export const Footer = () => {
@@ -16,11 +16,11 @@ export const Footer = () => {
       opacity: isVisible ? 1 : 0,
     }}>
       <a target="_blank" href='https://linkedin.com/in/kekland'>
-        <img className='social-button' src={LogoLinkedIn} />
+        <LogoLinkedIn className='social-button icon' />
       </a>
       <div style={{ width: 16 }} />
       <a target="_blank" href='https://github.com/kekland'>
-        <img className='social-button' src={LogoGithub} />
+        <LogoGithub className='social-button icon' />
       </a>
     </div>
   );

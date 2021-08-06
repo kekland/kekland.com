@@ -4,10 +4,10 @@ import './Navbar.css';
 
 import { ReactComponent as ArrowBackIcon } from '../../icons/chevron-back-outline.svg'
 import { Link, useHistory } from 'react-router-dom';
-import { useElementScroll } from '../../hooks/useWindowScroll';
+import { useWindowScroll } from '../../hooks/useWindowScroll';
 
 export const Navbar = ({ refs }) => {
-  const scroll = 0.0//useElementScroll('.page-wrapper');
+  const scroll = useWindowScroll();
   const windowSize = useWindowSize()
 
   const items = {
@@ -43,9 +43,13 @@ export const Navbar = ({ refs }) => {
   );
 }
 
-export const ModalNavbar = ({ title, preferredBackLocation, parent, backgroundColor }) => {
+export const ModalNavbar = ({ title, preferredBackLocation, parent, backgroundColor, useScrollEffects }) => {
   const history = useHistory()
   const { width } = useWindowSize()
+
+  const scroll = useWindowScroll();
+  const scrollEffectHeight = 240;
+  const scrollEffect = useScrollEffects ? Math.max(1.0 - scroll / scrollEffectHeight, 0.0) : 0.0
 
   const marginLeft = width - 1024 >= 40 ? 0 : Math.max(40, width - 1024)
 
@@ -68,7 +72,12 @@ export const ModalNavbar = ({ title, preferredBackLocation, parent, backgroundCo
         <ArrowBackIcon style={{ width: 24 }} />
       </div>
       <div className='content-width' style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
-        <span style={{ position: 'absolute', marginLeft }}>
+        <span style={{
+          position: 'absolute',
+          marginLeft: marginLeft * (1.0 - scrollEffect),
+          transform: `scale(${scrollEffect * 2.0 + 1.0}) translateY(${scrollEffect * 60}px)`,
+          transformOrigin: 'top left',
+        }}>
           {title}
         </span>
       </div>
