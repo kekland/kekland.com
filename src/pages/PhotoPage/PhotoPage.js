@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { getImageUrl, loadSinglePhoto, loadSinglePhotoByGooglePhotoId } from '../../api/api'
+import { endpoint, getImageUrl, loadSinglePhoto, loadSinglePhotoByGooglePhotoId } from '../../api/api'
 import { ModalNavbar } from '../../components/Navbar/Navbar'
 import './PhotoPage.css'
 
@@ -13,8 +13,8 @@ export const PhotoPage = () => {
       loadSinglePhoto(id).then(setPhoto)
     }
     else {
-      if (id.startsWith('http')) {
-        setPhoto({ url: id })
+      if (id.startsWith('uploads_')) {
+        setPhoto({ url: id.replace('uploads_', `${endpoint}/uploads/`) })
       }
       else {
         loadSinglePhotoByGooglePhotoId(id).then(setPhoto)

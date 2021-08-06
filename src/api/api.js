@@ -1,5 +1,5 @@
 const isProduction = process.env.NODE_ENV == 'production'
-const endpoint = isProduction ? 'https://kekland.com/api' : 'http://localhost:1337';
+export const endpoint = isProduction ? 'https://kekland.com/api' : 'http://localhost:1337';
 
 export const getImageUrl = (img) => {
   return `${endpoint}${img.url}`
@@ -77,6 +77,6 @@ export const loadSinglePhotoByGooglePhotoId = async (id) => {
 }
 
 export const loadPhotos = async (skip) => {
-  const data = await makeRequest(`/photos?_sort=takenAt:desc&_limit=4&_start=${skip}`)
+  const data = await makeRequest(`/photos?_sort=takenAt:desc&_limit=9&_start=${skip}`)
   return data
 }

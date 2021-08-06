@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getImageMediumUrl, getImageSmallUrl, loadPhotos } from '../../api/api'
+import { endpoint, getImageMediumUrl, getImageSmallUrl, getImageUrl, loadPhotos } from '../../api/api'
 import { FlyInAnimation } from '../../components/FlyInAnimation/FlyInAnimation'
 import { ModalNavbar } from '../../components/Navbar/Navbar'
 import { FooterSection } from '../MainPage/FooterSection/FooterSection'
@@ -92,11 +92,17 @@ export const GalleryGrid = ({ style, children, className }) => {
 }
 
 export const GalleryGridFromUrlList = ({ style, urls, className }) => {
+
   return (
     <GalleryGrid style={style} className={className}>
-      {urls.map((v, i) => (
-        <GalleryItem url={v} id={v} key={i} />
-      ))}
+      {
+        urls.map((v, i) => {
+          const components = v.split('/')
+          return (
+            <GalleryItem url={v} id={`uploads_${components[components.length - 1]}`} key={i} />
+          )
+        })
+      }
     </GalleryGrid>
   )
 }
