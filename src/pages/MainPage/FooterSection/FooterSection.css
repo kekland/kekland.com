@@ -20,16 +20,3 @@
 .footer-source:hover {
   opacity: 1;
 }
-
-.footer-moon {
-  position: absolute;
-  right: 24px;
-  width: 24px;
-  opacity: 0.5;
-  transition: all ease-in-out 0.15s;
-  cursor: pointer;
-}
-
-.footer-moon:hover {
-  opacity: 1;
-}

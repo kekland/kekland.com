@@ -15,7 +15,6 @@ const AppCard = ({ data }) => {
           title={data.title}
           description={data.description}
           img={getImageUrl(data.image)}
-          accentColor={data.color}
         />
       </a>
     </FlyInAnimation>

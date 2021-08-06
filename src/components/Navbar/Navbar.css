@@ -34,3 +34,15 @@
 .navbar-selected {
   opacity: 1.0;
 }
+
+.navbar-moon {
+  width: 24px;
+  opacity: 0.5;
+  transition: all ease-in-out 0.15s;
+  cursor: pointer;
+  margin-right: 32px;
+}
+
+.navbar-moon:hover {
+  opacity: 1;
+}

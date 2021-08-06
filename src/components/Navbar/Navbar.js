@@ -3,8 +3,11 @@ import { useWindowSize } from '../../hooks/useWindowSize';
 import './Navbar.css';
 
 import { ReactComponent as ArrowBackIcon } from '../../icons/chevron-back-outline.svg'
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useWindowScroll } from '../../hooks/useWindowScroll';
+import { ReactComponent as IconMoon } from '../../icons/moon.svg'
+import { useDispatch } from 'react-redux'
+import { toggle } from '../../redux/theme.slice'
 
 export const Navbar = ({ refs }) => {
   const scroll = useWindowScroll();
@@ -26,6 +29,13 @@ export const Navbar = ({ refs }) => {
 
   const isTransparent = scroll < windowSize.height
 
+
+  const dispatch = useDispatch()
+
+  const toggleTheme = () => {
+    dispatch(toggle())
+  }
+
   return (
     <div className='navbar text-title unselectable' style={{ backgroundColor: isTransparent ? 'transparent' : 'var(--color-background)' }}>
       <div style={{ flex: 1 }} />
@@ -39,6 +49,7 @@ export const Navbar = ({ refs }) => {
           </a>
         )
       }
+      <IconMoon className='navbar-moon icon' onClick={toggleTheme} />
     </div>
   );
 }
