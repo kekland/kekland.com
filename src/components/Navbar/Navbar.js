@@ -1,13 +1,13 @@
 import React from 'react';
-import { useWindowScroll } from '../../hooks/useWindowScroll';
 import { useWindowSize } from '../../hooks/useWindowSize';
 import './Navbar.css';
 
 import { ReactComponent as ArrowBackIcon } from '../../icons/chevron-back-outline.svg'
 import { Link, useHistory } from 'react-router-dom';
+import { useElementScroll } from '../../hooks/useWindowScroll';
 
 export const Navbar = ({ refs }) => {
-  const scroll = useWindowScroll()
+  const scroll = 0.0//useElementScroll('.page-wrapper');
   const windowSize = useWindowSize()
 
   const items = {
@@ -43,11 +43,20 @@ export const Navbar = ({ refs }) => {
   );
 }
 
-export const ModalNavbar = ({ title, backgroundColor }) => {
+export const ModalNavbar = ({ title, preferredBackLocation, parent, backgroundColor }) => {
   const history = useHistory()
   const { width } = useWindowSize()
 
   const marginLeft = width - 1024 >= 40 ? 0 : Math.max(40, width - 1024)
+
+  const goBack = () => {
+    if (history.action === 'POP' || history.action === 'REPLACE') {
+      history.replace(preferredBackLocation ?? '/')
+    }
+    else {
+      history.goBack()
+    }
+  }
 
   return (
     <div className='navbar text-title unselectable' style={{
@@ -55,7 +64,7 @@ export const ModalNavbar = ({ title, backgroundColor }) => {
       justifyContent: 'center',
       alignItems: 'center'
     }}>
-      <div style={{ position: 'absolute', left: 16, height: 24, cursor: 'pointer' }} onClick={history.goBack}>
+      <div style={{ position: 'absolute', left: 16, height: 24, cursor: 'pointer' }} onClick={goBack}>
         <ArrowBackIcon style={{ width: 24 }} />
       </div>
       <div className='content-width' style={{ height: '100%', display: 'flex', alignItems: 'center' }}>

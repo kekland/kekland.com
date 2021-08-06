@@ -65,13 +65,3 @@ a:visited {
   color: inherit;
   cursor: auto;
 }
-
-.fade-enter {
-  transition: all 250ms ease-in;
-  opacity: 0;
-  z-index: 1001;
-}
-
-.fade-enter.fade-enter-active {
-  opacity: 1;
-}

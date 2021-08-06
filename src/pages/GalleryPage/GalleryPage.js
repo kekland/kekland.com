@@ -67,7 +67,7 @@ export const GalleryPage = () => {
 
   return (
     <div className='page'>
-      <ModalNavbar title='Gallery' />
+      <ModalNavbar title='Gallery' parent='/' />
       <div className='column' style={{ padding: 24 }}>
         <div className='content-width gallery-page-grid' style={{ marginTop: 40 }}>
           {listItems.map((v) => (

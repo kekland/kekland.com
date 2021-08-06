@@ -13,9 +13,9 @@ export const PhotoPage = () => {
   }, []);
 
   return (
-    <div className='photo-page'>
+    <div className='page photo-page'>
       <div className='photo-page-navbar'>
-        <ModalNavbar backgroundColor='transparent' />
+        <ModalNavbar backgroundColor='transparent' preferredBackLocation='/gallery' />
       </div>
       {
         photo ? <img src={photo.url} className='photo-page-photo' /> : <></>
