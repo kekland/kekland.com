@@ -1,3 +1,9 @@
+@media only screen and (max-width: 500px) {
+  .gallery-page-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
 .gallery-page-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
