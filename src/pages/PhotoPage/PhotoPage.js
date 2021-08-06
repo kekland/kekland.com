@@ -2,9 +2,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router'
 import { ModalNavbar } from '../../components/Navbar/Navbar'
 import { useGetSinglePhotoAutoQuery } from '../../redux/api'
-import { ReactComponent as IconDownload } from '../../icons/cloud-download-outline.svg'
 import './PhotoPage.css'
-import { Anchor } from '../../components/Anchor/Anchor'
 
 export const PhotoPage = () => {
   const [isLoaded, setIsLoaded] = useState(false)

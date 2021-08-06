@@ -3,7 +3,7 @@ import './Card.css'
 
 import { ReactComponent as ChevronForwardOutline } from '../../icons/chevron-forward-outline.svg'
 
-export const Card = ({ title, description, onClick, accentColor, img, children }) => {
+export const Card = ({ title, description, accentColor, img, children }) => {
   return (
     <div className='card'>
       {

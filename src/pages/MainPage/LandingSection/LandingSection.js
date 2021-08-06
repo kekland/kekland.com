@@ -1,6 +1,5 @@
 import React from 'react';
 import { Background } from './Background';
-import { useWindowScrollOnce } from '../../../hooks/useWindowScroll';
 
 import './LandingSection.css';
 
