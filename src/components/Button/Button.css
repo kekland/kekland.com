@@ -7,7 +7,8 @@ button {
   padding-right: 16px;
 
   border: 0;
-  background-color: var(--color-primary);
+  background-color: var(--color-action);
+  opacity: 0.5;
   border-radius: 12px;
 
   color: var(--color-text);
@@ -21,4 +22,5 @@ button {
 
 button:hover {
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
+  opacity: 1.0;
 }

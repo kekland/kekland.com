@@ -4,6 +4,7 @@ html {
 
 .App-light {
   --color-background: #fafafa;
+  --color-action: #ececec;
   --color-foreground: #ffffff;
   --color-text: #000000;
   --color-primary: #FFBE0B;
@@ -11,6 +12,7 @@ html {
 
 .App-dark {
   --color-background: #0a0a0a;
+  --color-action: #000000;
   --color-foreground: #000000;
   --color-text: #ffffff;
   --color-primary: #efaf00;
