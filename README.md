@@ -12,12 +12,14 @@ Check out my portfolio website [here](https://kekland.com) :)
 
 - Embedding application previews in `iframe`s (e.g. Flutter Web application)
 
+- Light/dark theme
+
 - (hopefully) mobile-friendly :D
 
 ## Stack
 
-- Frontend: `React`
-- Backend/CMS: `strapi`
+- Frontend: `React` with `redux-toolkit` and `RTK queries`
+- Backend/CMS: `strapi` with custom functions
 
 ## Contact me
 
