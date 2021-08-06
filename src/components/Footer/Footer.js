@@ -4,6 +4,7 @@ import './Footer.css'
 import { ReactComponent as LogoGithub } from '../../icons/logo-github.svg';
 import { ReactComponent as LogoLinkedIn } from '../../icons/logo-linkedin.svg';
 import { useWindowScroll } from '../../hooks/useWindowScroll';
+import { AnchorGithub, AnchorLinkedIn } from '../Anchor/Anchor';
 
 export const Footer = () => {
   const scroll = useWindowScroll();
@@ -15,13 +16,13 @@ export const Footer = () => {
       visibility: isVisible ? 'visible' : 'hidden',
       opacity: isVisible ? 1 : 0,
     }}>
-      <a target="_blank" href='https://linkedin.com/in/kekland'>
+      <AnchorLinkedIn>
         <LogoLinkedIn className='social-button icon' />
-      </a>
+      </AnchorLinkedIn>
       <div style={{ width: 16 }} />
-      <a target="_blank" href='https://github.com/kekland'>
+      <AnchorGithub>
         <LogoGithub className='social-button icon' />
-      </a>
+      </AnchorGithub>
     </div>
   );
 }

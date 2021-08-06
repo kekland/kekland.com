@@ -1,6 +1,5 @@
 import React from 'react'
 import './PhoneFrame.css'
-import { ReactComponent as IconCloudDownload } from '../../icons/cloud-download-outline.svg'
 
 export const PhoneFrame = ({ children, width, style, showContents }) => {
   return (

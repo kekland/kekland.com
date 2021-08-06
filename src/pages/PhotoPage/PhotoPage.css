@@ -13,7 +13,18 @@
   width: 100vw;
   height: 100vh;
   object-fit: contain;
+  z-index: 1;
 }
+
+.photo-page-photo-thumbnail {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  filter: blur(5px);
+  z-index: 0;
+}
+
 
 .photo-page-navbar {
   position: absolute;

@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './GallerySection.css'
 
-import { Card, ShimmerCard } from '../../../components/Card/Card'
-import { getImageSmallUrl, getImageUrl, loadLatestPhotos } from '../../../api/api'
 import { FlyInAnimation } from '../../../components/FlyInAnimation/FlyInAnimation'
 import { Link } from 'react-router-dom'
 
 import { ReactComponent as ChevronRightIcon } from '../../../icons/chevron-forward-outline.svg'
-import { FooterSection } from '../FooterSection/FooterSection'
+import { useGetLatestPhotosQuery } from '../../../redux/api'
 
 const GalleryItem = ({ data }) => {
   return (
@@ -26,17 +24,12 @@ const GalleryItem = ({ data }) => {
 }
 
 export const GallerySection = ({ titleRef }) => {
-  const [gallery, setGallery] = useState(null);
-
-  useEffect(async () => {
-    const result = await loadLatestPhotos()
-    setGallery(result);
-  }, []);
+  const { data } = useGetLatestPhotosQuery(5)
 
   let children
 
-  if (gallery) {
-    children = gallery.map((app) => <GalleryItem data={app} key={app.id} />)
+  if (data) {
+    children = data.map((photo) => <GalleryItem data={photo} key={photo.id} />)
   }
   else {
     children = Array.apply(null, { length: 5 }).map((_, i) => <GalleryItem key={i} />)

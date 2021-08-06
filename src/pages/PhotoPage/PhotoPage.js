@@ -1,36 +1,35 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router'
-import { endpoint, getImageUrl, loadSinglePhoto, loadSinglePhotoByGooglePhotoId } from '../../api/api'
 import { ModalNavbar } from '../../components/Navbar/Navbar'
+import { useGetSinglePhotoAutoQuery } from '../../redux/api'
+import { ReactComponent as IconDownload } from '../../icons/cloud-download-outline.svg'
 import './PhotoPage.css'
+import { Anchor } from '../../components/Anchor/Anchor'
 
 export const PhotoPage = () => {
+  const [isLoaded, setIsLoaded] = useState(false)
   const { id } = useParams()
-  const [photo, setPhoto] = useState(null)
+  const { data } = useGetSinglePhotoAutoQuery(id)
 
-  useEffect(() => {
-    if (parseInt(id)) {
-      loadSinglePhoto(id).then(setPhoto)
+  let child
+  let thumbnailChild
+
+  if (data) {
+    child = <img src={data.url} className='photo-page-photo' onLoad={() => setIsLoaded(true)} />
+
+    if (data.url.includes('=w') && !isLoaded) {
+      const thumbnailUrl = `${data.url.split('=w')[0]}=w500`
+      thumbnailChild = <img src={thumbnailUrl} className='photo-page-photo-thumbnail' />
     }
-    else {
-      if (id.startsWith('uploads_')) {
-        setPhoto({ url: id.replace('uploads_', `${endpoint}/uploads/`) })
-      }
-      else {
-        loadSinglePhotoByGooglePhotoId(id).then(setPhoto)
-      }
-    }
-  }, []);
+  }
 
   return (
     <div className='page photo-page'>
       <div className='photo-page-navbar'>
         <ModalNavbar backgroundColor='transparent' preferredBackLocation='/gallery' />
       </div>
-      {
-        photo ? <img src={photo.url} className='photo-page-photo' /> : <></>
-      }
-
+      {thumbnailChild}
+      {child}
     </div>
   )
 }

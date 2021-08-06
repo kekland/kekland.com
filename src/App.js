@@ -1,3 +1,5 @@
+import React from 'react'
+
 import './css/index.css';
 import './css/fonts.css';
 import { Route, Switch } from 'react-router-dom';
@@ -14,6 +16,7 @@ function App() {
   const theme = useSelector((state) => state.theme.value)
 
   useEffect(() => {
+    // eslint-disable-next-line no-undef
     setImmediate(() => {
       const color = getComputedStyle(document.querySelector('.App'))
         .getPropertyValue('--color-background')

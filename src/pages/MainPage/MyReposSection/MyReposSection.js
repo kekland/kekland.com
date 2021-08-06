@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './MyReposSection.css'
 
-import { loadRepos } from '../../../api/api'
 import { Card, ShimmerCard } from '../../../components/Card/Card'
 import { ReactComponent as StarIcon } from '../../../icons/star-outline.svg'
 import { FlyInAnimation } from '../../../components/FlyInAnimation/FlyInAnimation'
 import { useSelector } from 'react-redux'
+import { Anchor } from '../../../components/Anchor/Anchor'
+import { useGetReposQuery } from '../../../redux/api'
 
 const RepoCard = ({ data }) => {
   const theme = useSelector((state) => state.theme.value)
 
   return (
     <FlyInAnimation>
-      <a target="_blank" href={data.url}>
+      <Anchor href={data.url}>
         <Card title={data.name} description={data.description}>
           <div style={{ height: 8 }} />
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
@@ -32,23 +33,19 @@ const RepoCard = ({ data }) => {
             <span style={{ opacity: 0.5, fontSize: 12 }}>{data.stars}</span>
           </div>
         </Card>
-      </a>
+      </Anchor>
     </FlyInAnimation>
   )
 }
 
 export const MyReposSection = () => {
-  const [repos, setRepos] = useState(null);
-
-  useEffect(() => {
-    loadRepos().then(setRepos)
-  }, []);
+  const { data } = useGetReposQuery()
 
   const itemCount = 8
   let children
 
-  if (repos) {
-    const sortedRepos = [...repos].sort((a, b) => b.stars - a.stars).slice(0, itemCount)
+  if (data) {
+    const sortedRepos = [...data].sort((a, b) => b.stars - a.stars).slice(0, itemCount)
     children = sortedRepos.map((v) => <RepoCard data={v} key={v.id} />)
   }
   else {

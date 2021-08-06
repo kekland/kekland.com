@@ -36,45 +36,6 @@ const makeRequest = async (req) => {
   }
 }
 
-export const loadMyApps = async () => {
-  const data = await makeRequest('/apps')
-  return data
-}
-
-export const loadSingleApp = async (id) => {
-  const data = await makeRequest(`/apps/${id}`)
-  return data
-}
-
-export const loadRobotics = async () => {
-  const data = await makeRequest('/robotics')
-  return data
-}
-
-export const loadSingleRobotics = async (id) => {
-  const data = await makeRequest(`/robotics/${id}`)
-  return data
-}
-
-export const loadRepos = async () => {
-  const data = await makeRequest(`/repos`)
-  return data
-}
-
-export const loadLatestPhotos = async () => {
-  const data = await makeRequest(`/photos?_sort=takenAt:desc&_limit=5`)
-  return data
-}
-
-export const loadSinglePhoto = async (id) => {
-  const data = await makeRequest(`/photos/${id}`)
-  return data
-}
-
-export const loadSinglePhotoByGooglePhotoId = async (id) => {
-  const data = await makeRequest(`/photos?gphotosId=${id}`)
-  return data[0]
-}
 
 export const loadPhotos = async (skip) => {
   const data = await makeRequest(`/photos?_sort=takenAt:desc&_limit=9&_start=${skip}`)

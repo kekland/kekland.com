@@ -13,6 +13,22 @@
   animation-fill-mode: forwards;
 }
 
+.outer-circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  z-index: 0;
+  transform: scale(1);
+  transition: background-color ease-in-out 0.3s;
+  opacity: 0.5;
+}
+
+.outer-circle-animation {
+  animation: outer-circle-flyout cubic-bezier(0.85, 0, 0.15, 1) 500ms;
+  animation-delay: 700ms;
+  animation-fill-mode: forwards;
+}
+
 .landing-arrow {
   position: absolute;
   z-index: 0;
@@ -30,6 +46,11 @@
 }
 
 @keyframes circle-flyin {
-  from { transform: scale(3); }
+  from { transform: scale(2); }
   to { transform: scale(1); }
+}
+
+@keyframes outer-circle-flyout {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
 }

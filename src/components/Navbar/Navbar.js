@@ -54,7 +54,7 @@ export const Navbar = ({ refs }) => {
   );
 }
 
-export const ModalNavbar = ({ icon, title, preferredBackLocation, parent, backgroundColor, useScrollEffects }) => {
+export const ModalNavbar = ({ icon, title, preferredBackLocation, backgroundColor, useScrollEffects, actions }) => {
   const history = useHistory()
   const { width } = useWindowSize()
 
@@ -103,6 +103,9 @@ export const ModalNavbar = ({ icon, title, preferredBackLocation, parent, backgr
           }
           {title}
         </span>
+      </div>
+      <div style={{position: 'absolute', right: 32, height: 24}}>
+        {actions}
       </div>
     </div>
   )

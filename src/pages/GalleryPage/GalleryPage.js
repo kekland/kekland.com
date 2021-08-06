@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { endpoint, getImageMediumUrl, getImageSmallUrl, getImageUrl, loadPhotos } from '../../api/api'
-import { FlyInAnimation } from '../../components/FlyInAnimation/FlyInAnimation'
+import { loadPhotos } from '../../api/api'
 import { ModalNavbar } from '../../components/Navbar/Navbar'
 import { FooterSection } from '../MainPage/FooterSection/FooterSection'
 import './GalleryPage.css'

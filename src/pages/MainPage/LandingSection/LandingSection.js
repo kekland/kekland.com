@@ -9,7 +9,7 @@ import { useWindowSize } from '../../../hooks/useWindowSize';
 
 export const LandingSection = () => {
   const size = useWindowSize()
-  const animated = useWindowScrollOnce()
+  const animated = true; //useWindowScrollOnce()
 
   if (size.width < 1000) {
     return (
@@ -27,7 +27,7 @@ export const LandingSection = () => {
           <span className={animatedTextClassName}>.</span>
         </span>
         <span className='text-title unselectable' style={{ fontSize: '80px' }}>
-          I'm&nbsp;
+          I&apos;m&nbsp;
           <span className={animatedTextClassName}>Erzhan</span>
         </span>
         <span style={{ fontSize: '16px', opacity: 0.5, alignSelf: 'flex-end' }}>
@@ -58,7 +58,7 @@ export const LandingSectionMobile = ({ animated }) => {
           <span className={animatedTextClassName}>.</span>
         </span>
         <span className='text-title unselectable' style={{ fontSize: '64px' }}>
-          I'm&nbsp;
+          I&apos;m&nbsp;
           <span className={animatedTextClassName}>Erzhan</span>
         </span>
         <span style={{ fontSize: '16px', opacity: 0.5, alignSelf: 'flex-end' }}>
