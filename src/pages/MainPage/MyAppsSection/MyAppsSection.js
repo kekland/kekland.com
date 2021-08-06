@@ -10,13 +10,13 @@ import { Link } from 'react-router-dom'
 const AppCard = ({ data }) => {
   return (
     <FlyInAnimation>
-      <a href={data.url} target='_blank'>
+      <Link to={`/app/${data.id}`}>
         <Card
           title={data.title}
           description={data.description}
           img={getImageUrl(data.image)}
         />
-      </a>
+      </Link>
     </FlyInAnimation>
   )
 }

@@ -54,7 +54,7 @@ export const Navbar = ({ refs }) => {
   );
 }
 
-export const ModalNavbar = ({ title, preferredBackLocation, parent, backgroundColor, useScrollEffects }) => {
+export const ModalNavbar = ({ icon, title, preferredBackLocation, parent, backgroundColor, useScrollEffects }) => {
   const history = useHistory()
   const { width } = useWindowSize()
 
@@ -91,7 +91,16 @@ export const ModalNavbar = ({ title, preferredBackLocation, parent, backgroundCo
           marginLeft: marginLeft * (1.0 - scrollEffect),
           transform: `scale(${scrollEffect * 2.0 + 1.0}) translateY(${scrollEffect * 60}px)`,
           transformOrigin: 'top left',
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
         }}>
+          {
+            icon ? <>
+              {icon}
+              <div style={{ width: 8 }} />
+            </> : null
+          }
           {title}
         </span>
       </div>

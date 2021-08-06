@@ -6,15 +6,14 @@ import { ModalNavbar } from '../../components/Navbar/Navbar'
 import { FooterSection } from '../MainPage/FooterSection/FooterSection'
 import './GalleryPage.css'
 
-const GalleryItem = ({ data }) => {
-  console.log(data)
+const GalleryItem = ({ id, url }) => {
   return (
     <div className='gallery-page-item'>
       <div className='gallery-page-item-child'>
         {
-          data ?
-            <Link to={`/photo/${data.id}`}>
-              <img src={data.thumbnailUrl} className='gallery-page-img' />
+          id ?
+            <Link to={`/photo/${id}`}>
+              <img src={url} className='gallery-page-img' />
             </Link> :
             <div className='gallery-page-img' style={{ backgroundColor: '#bdbdbd' }} />
         }
@@ -69,15 +68,35 @@ export const GalleryPage = () => {
   return (
     <div className='page'>
       <ModalNavbar title='Gallery' parent='/' useScrollEffects />
-      <div style={{height: 240}} />
+      <div style={{ height: 240 }} />
       <div className='column' style={{ padding: 24 }}>
-        <div className='content-width gallery-page-grid' style={{ marginTop: 40 }}>
-          {listItems.map((v) => (
-            <GalleryItem data={v} key={v.id} />
-          ))}
+        <div className='content-width'>
+          <GalleryGrid style={{ marginTop: 40 }}>
+            {listItems.map((v) => (
+              <GalleryItem url={v.thumbnailUrl} id={v.id} key={v.id} />
+            ))}
+          </GalleryGrid>
         </div>
       </div>
       <FooterSection />
     </div>
   );
+}
+
+export const GalleryGrid = ({ style, children, className }) => {
+  return (
+    <div className={`gallery-page-grid ${className}`} style={{ ...style }}>
+      {children}
+    </div>
+  )
+}
+
+export const GalleryGridFromUrlList = ({ style, urls, className }) => {
+  return (
+    <GalleryGrid style={style} className={className}>
+      {urls.map((v, i) => (
+        <GalleryItem url={v} id={v} key={i} />
+      ))}
+    </GalleryGrid>
+  )
 }

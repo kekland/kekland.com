@@ -13,7 +13,12 @@ export const PhotoPage = () => {
       loadSinglePhoto(id).then(setPhoto)
     }
     else {
-      loadSinglePhotoByGooglePhotoId(id).then(setPhoto)
+      if (id.startsWith('http')) {
+        setPhoto({ url: id })
+      }
+      else {
+        loadSinglePhotoByGooglePhotoId(id).then(setPhoto)
+      }
     }
   }, []);
 

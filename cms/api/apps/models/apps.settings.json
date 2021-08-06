@@ -48,8 +48,29 @@
     "color": {
       "type": "string"
     },
-    "url": {
+    "repositoryUrl": {
       "type": "string"
+    },
+    "googlePlayUrl": {
+      "type": "string"
+    },
+    "appStoreUrl": {
+      "type": "string"
+    },
+    "iframeUrl": {
+      "type": "string"
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

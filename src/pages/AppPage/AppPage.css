@@ -1,0 +1,40 @@
+.app-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .app-page-content {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.app-page-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 36px;
+
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.app-page-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.app-page-icon {
+  width: 36px;
+  opacity: 0.5;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.app-page-icon:hover {
+  opacity: 1;
+}
+

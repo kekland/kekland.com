@@ -20,6 +20,7 @@ function App() {
 
       // Set background color of `html` item
       document.querySelector('html').style.backgroundColor = color
+      localStorage.setItem('theme', theme)
     })
   }, [theme])
 
