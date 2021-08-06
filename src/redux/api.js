@@ -13,7 +13,10 @@ export const api = createApi({
     getRepos: builder.query({ query: () => `/repos` }),
     getLatestPhotos: builder.query({ query: (count) => `/photos?_sort=takenAt:desc&_limit=${count}` }),
     getSinglePhoto: builder.query({ query: (id) => `/photos/${id}` }),
-    getSinglePhotoByGooglePhotosId: builder.query({ query: (id) => `/photos?gphotosId=${id}` }),
+    getSinglePhotoByGooglePhotosId: builder.query({
+      query: (id) => `/photos?gphotosId=${id}`,
+      transformResponse: (response) => response[0],
+    }),
     getPhotosPaginated: builder.query({ query: (skip) => `/photos?_sort=takenAt:desc&_limit=9&_start=${skip}` }),
     getSinglePhotoAuto: builder.query({
       async queryFn(arg, api, _, fetch) {

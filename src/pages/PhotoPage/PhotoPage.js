@@ -13,10 +13,11 @@ export const PhotoPage = () => {
   let thumbnailChild
 
   if (data) {
-    child = <img src={data.url} className='photo-page-photo' onLoad={() => setIsLoaded(true)} />
+    const url = Array.isArray(data) ? data[0].url : data.url
+    child = <img src={url} className='photo-page-photo' onLoad={() => setIsLoaded(true)} />
 
-    if (data.url.includes('=w') && !isLoaded) {
-      const thumbnailUrl = `${data.url.split('=w')[0]}=w500`
+    if (url.includes('=w') && !isLoaded) {
+      const thumbnailUrl = `${url.split('=w')[0]}=w500`
       thumbnailChild = <img src={thumbnailUrl} className='photo-page-photo-thumbnail' />
     }
   }
