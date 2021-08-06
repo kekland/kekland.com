@@ -5,6 +5,7 @@ import './ContactMeSection.css'
 import { ReactComponent as LogoGithub } from '../../../icons/logo-github.svg'
 import { ReactComponent as LogoLinkedIn } from '../../../icons/logo-linkedin.svg'
 import { ReactComponent as IconMail } from '../../../icons/mail.svg'
+import { ReactComponent as IconOpen } from '../../../icons/open-outline.svg'
 import { ReactComponent as IconDownload } from '../../../icons/cloud-download-outline.svg'
 import { Button } from '../../../components/Button/Button'
 import { endpoint } from '../../../api/api'
@@ -15,25 +16,31 @@ export const ContactMeSection = ({ titleRef }) => {
   const { data } = useGetContentQuery()
 
   return (
-    <div className='section' id='contact-me' ref={titleRef}>
-      <FlyInAnimation>
-        <p className='text-title text-primary'>contact me</p>
-      </FlyInAnimation>
-      <FlyInAnimation>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <AnchorEmail><IconMail className='contact-icon icon' /></AnchorEmail>
-          <AnchorGithub><LogoGithub className='contact-icon icon' /></AnchorGithub>
-          <AnchorLinkedIn><LogoLinkedIn className='contact-icon icon' /></AnchorLinkedIn>
-          <div style={{ width: 100, opacity: 0.5, textAlign: 'center' }} className='text-title'>or</div>
+    <>
+      <div className='section' id='contact-me' ref={titleRef}>
+        <FlyInAnimation>
+          <p className='text-title text-primary'>contact me</p>
+        </FlyInAnimation>
+        <FlyInAnimation>
+          <div style={{ display: 'flex' }}>
+            <AnchorEmail><IconMail className='contact-icon icon' /></AnchorEmail>
+            <div style={{ width: 16 }} />
+            <AnchorGithub><LogoGithub className='contact-icon icon' /></AnchorGithub>
+            <div style={{ width: 16 }} />
+            <AnchorLinkedIn><LogoLinkedIn className='contact-icon icon' /></AnchorLinkedIn>
+          </div>
+        </FlyInAnimation>
+        <div style={{ height: 24 }} />
+        <FlyInAnimation>
           <Anchor href={`${endpoint}${data?.resumeUrl}`}>
             <Button style={{ width: 240, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <IconDownload style={{ width: 20 }} />
+              <IconOpen style={{ width: 20 }} />
               <div style={{ width: 8 }} />
               <span>Resume</span>
             </Button>
           </Anchor>
-        </div>
-      </FlyInAnimation>
-    </div>
+        </FlyInAnimation>
+      </div>
+    </>
   )
 }
