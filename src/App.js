@@ -11,11 +11,8 @@ import { PhotoPage } from './pages/PhotoPage/PhotoPage';
 import { GalleryPage } from './pages/GalleryPage/GalleryPage';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import usePageTracking from './hooks/usePageTracking';
 
 function App() {
-  usePageTracking()
-
   const theme = useSelector((state) => state.theme.value)
 
   useEffect(() => {

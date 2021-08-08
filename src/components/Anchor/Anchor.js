@@ -1,16 +1,5 @@
 import React from 'react'
 import { useGetContentQuery } from '../../redux/api'
-import ReactGA from 'react-ga'
-
-const logAnalyticsAction = (href) => {
-  ReactGA.event({
-    category: 'redirect',
-    action: 'anchor-click',
-    label: href,
-  })
-
-  return true
-}
 
 export const Anchor = ({ href, children, style, download }) => {
   return (
@@ -20,7 +9,6 @@ export const Anchor = ({ href, children, style, download }) => {
       rel='noreferrer'
       style={style}
       download={download}
-      onClick={() => logAnalyticsAction(href)}
     >
       {children}
     </a>
