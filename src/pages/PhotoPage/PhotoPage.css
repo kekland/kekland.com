@@ -1,7 +1,7 @@
 .photo-page {
   background-color: #000000;
   color: #ffffff;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
 }
 
 .photo-page-photo {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   object-fit: contain;
   z-index: 1;
@@ -18,7 +18,7 @@
 
 .photo-page-photo-thumbnail {
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   object-fit: contain;
   filter: blur(5px);

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -5,6 +6,14 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { store } from './redux/store';
+import ReactGA from 'react-ga'
+
+ReactGA.initialize(process.env.REACT_APP_GA_ID, {
+  debug: false,
+  gaOptions: {
+    siteSpeedSampleRate: 100,
+  },
+})
 
 ReactDOM.render(
   <Provider store={store}>

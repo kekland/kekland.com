@@ -31,6 +31,7 @@ body {
 }
 
 .App {
+  position: relative;
   color: var(--color-text);
 }
 
@@ -71,12 +72,12 @@ code {
 }
 
 .content-width {
-  width: min(100vw, 1024px);
+  width: min(100%, 1024px);
 }
 
 .section {
   box-sizing: border-box;
-  width: min(100vw, 1024px);
+  width: min(100%, 1024px);
   padding: 24px;
 }
 
@@ -96,4 +97,8 @@ a:visited {
   text-decoration: inherit;
   color: inherit;
   cursor: auto;
+}
+
+body > * {
+  overflow-anchor: none;
 }

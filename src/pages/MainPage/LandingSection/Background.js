@@ -8,7 +8,6 @@ import { ReactComponent as LandingArrow } from '../../../icons/landing-arrow.svg
 
 export const Background = ({ animate, withArrows }) => {
   const windowSize = useWindowSize();
-  console.log(windowSize.width)
 
   const width = windowSize.width;
   const height = windowSize.height;
@@ -23,7 +22,7 @@ export const Background = ({ animate, withArrows }) => {
   }
 
   return (
-    <>
+    <div id='landing-background'>
       <div id='circle' className={animate ? 'circle-animation' : ''} style={circleStyle} />
       <div className={`outer-circle ${animate ? 'outer-circle-animation' : ''}`} style={circleStyle} />
       {
@@ -36,6 +35,6 @@ export const Background = ({ animate, withArrows }) => {
           opacity: 1.0,
         }} /> : <></>
       }
-    </>
+    </div>
   );
 }

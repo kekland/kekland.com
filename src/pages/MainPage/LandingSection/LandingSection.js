@@ -1,25 +1,12 @@
 import React from 'react';
-import { Background } from './Background';
-
 import './LandingSection.css';
 
 import { SwitchingText } from './SwitchingText';
-import { useWindowSize } from '../../../hooks/useWindowSize';
 
 export const LandingSection = () => {
-  const size = useWindowSize()
-  const animated = true; //useWindowScrollOnce()
-
-  if (size.width < 1000) {
-    return (
-      <LandingSectionMobile animated={animated} />
-    )
-  }
-
-  const animatedTextClassName = `text-name ${animated ? 'text-name-animation' : ''}`;
+  const animatedTextClassName = `text-name text-name-animation`;
   return (
     <div id='landing'>
-      <Background animate={animated} withArrows />
       <div id='title'>
         <span className='text-title unselectable' style={{ fontSize: '56px' }}>
           hello
@@ -50,7 +37,6 @@ export const LandingSectionMobile = ({ animated }) => {
 
   return (
     <div id='landing'>
-      <Background animate={animated} />
       <div id='title'>
         <span className='text-title unselectable' style={{ fontSize: '36px' }}>
           hello
