@@ -8,8 +8,9 @@ import reportWebVitals from './reportWebVitals';
 import { store } from './redux/store';
 import ReactGA from 'react-ga'
 
-ReactGA.initialize(process.env.REACT_APP_GA_ID, {
-  debug: false,
+ReactGA.initialize(
+  process.env.REACT_APP_GA_ID, {
+  debug: process.env.NODE_ENV !== 'production',
   gaOptions: {
     siteSpeedSampleRate: 100,
   },
