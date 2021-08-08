@@ -10,6 +10,8 @@ Check out my portfolio website [here](https://kekland.com) :)
 
 - Hourly synchronization of my top GitHub repositories
 
+- Google Analytics support
+
 - Embedding application previews in `iframe`s (e.g. Flutter Web application)
 
 - Light/dark theme

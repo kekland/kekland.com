@@ -32,8 +32,8 @@ export const LandingSection = () => {
   );
 }
 
-export const LandingSectionMobile = ({ animated }) => {
-  const animatedTextClassName = `text-name ${animated ? 'text-name-animation' : ''}`;
+export const LandingSectionMobile = () => {
+  const animatedTextClassName = `text-name text-name-animation`;
 
   return (
     <div id='landing'>
