@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 
 // Hook
 export const useWindowScroll = () => {
-  const [windowScroll, setWindowScroll] = useState(undefined);
+  const [windowScroll, setWindowScroll] = useState(window.scrollY);
 
   useEffect(() => {
     const handleScroll = () => {
-      setWindowScroll(window.scrollY);
+      setWindowScroll(window.pageYOffset);
     }
 
     window.addEventListener("scroll", handleScroll);

@@ -32,7 +32,9 @@ function App() {
       <ScrollToTop />
       <div className='App-background' />
       <Switch>
-        <Route exact path='/' component={MainPage} />
+        <Route exact path='/'>
+          <MainPage />
+        </Route>
         <Route path='/app/:id' component={AppPage} />
         <Route exact path='/gallery' component={GalleryPage} />
         <Route path='/photo/:id' component={PhotoPage} />

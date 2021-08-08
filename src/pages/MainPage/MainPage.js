@@ -1,5 +1,4 @@
-import React, { useRef } from 'react'
-import { Footer } from '../../components/Footer/Footer'
+import React, { useEffect, useRef, useState } from 'react'
 import { Navbar } from '../../components/Navbar/Navbar'
 import { Page } from '../../components/Page/Page'
 import { useWindowSize } from '../../hooks/useWindowSize'
@@ -13,6 +12,7 @@ import { MyAppsSection } from './MyAppsSection/MyAppsSection'
 import { MyReposSection } from './MyReposSection/MyReposSection'
 
 export const MainPage = () => {
+  const [animate, setAnimate] = useState(false)
   const size = useWindowSize()
   const isSmall = size.width < 1000
 
@@ -20,14 +20,21 @@ export const MainPage = () => {
   const portfolioRef = useRef()
   const contactsRef = useRef()
 
+  useEffect(() => {
+    if (window.pageYOffset === 0) {
+      setAnimate(true)
+    }
+  }, [])
+
   return (
     <Page title={'My portfolio'}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Background withArrows={!isSmall} animate />
+        <Background withArrows={!isSmall} animate={animate} />
         <Navbar refs={[aboutMeRef, portfolioRef, contactsRef]} />
-        <Footer />
         {
-          isSmall ? <LandingSectionMobile /> : <LandingSection />
+          isSmall ?
+            <LandingSectionMobile animate={animate} /> :
+            <LandingSection animate={animate} />
         }
         <AboutMeSection titleRef={aboutMeRef} />
         <MyAppsSection titleRef={portfolioRef} />

@@ -5,12 +5,14 @@ export const SwitchingText = ({ labels }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       let newIndex = currentIndex + 1
-      if(newIndex === labels.length) newIndex = 0
+      if (newIndex === labels.length) newIndex = 0
 
       setCurrentIndex(newIndex)
     }, 750)
+
+    return () => clearTimeout(timeout)
   }, [currentIndex, labels])
 
   return (

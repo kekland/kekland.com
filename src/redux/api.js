@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
+// eslint-disable-next-line no-undef
 const isProduction = process.env.NODE_ENV == 'production'
 export const endpoint = isProduction ? 'https://kekland.com/api' : 'http://localhost:1337';
 
@@ -11,13 +12,13 @@ export const api = createApi({
     getApps: builder.query({ query: () => `/apps` }),
     getApp: builder.query({ query: (id) => `/apps/${id}` }),
     getRepos: builder.query({ query: () => `/repos` }),
-    getLatestPhotos: builder.query({ query: (count) => `/photos?_sort=takenAt:desc&_limit=${count}` }),
+    getLatestPhotos: builder.query({ query: (count) => `/photos?_sort=id:desc&_limit=${count}` }),
     getSinglePhoto: builder.query({ query: (id) => `/photos/${id}` }),
     getSinglePhotoByGooglePhotosId: builder.query({
       query: (id) => `/photos?gphotosId=${id}`,
       transformResponse: (response) => response[0],
     }),
-    getPhotosPaginated: builder.query({ query: (skip) => `/photos?_sort=takenAt:desc&_limit=9&_start=${skip}` }),
+    getPhotosPaginated: builder.query({ query: (skip) => `/photos?&_limit=9&_start=${skip}` }),
     getSinglePhotoAuto: builder.query({
       async queryFn(arg, api, _, fetch) {
         if (parseInt(arg)) {

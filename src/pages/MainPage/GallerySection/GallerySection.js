@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { ReactComponent as ChevronRightIcon } from '../../../icons/chevron-forward-outline.svg'
 import { useGetLatestPhotosQuery } from '../../../redux/api'
 
-const GalleryItem = ({ data }) => {
+const GalleryItem = ({ data, children }) => {
   return (
     <FlyInAnimation>
       <div className='gallery-item'>
@@ -16,7 +16,14 @@ const GalleryItem = ({ data }) => {
             <Link to={`/photo/${data.id}`}>
               <img src={data.thumbnailUrl} className='gallery-img' />
             </Link> :
-            <div className='gallery-img' style={{ backgroundColor: '#ececec' }} />
+            <div className='gallery-img' style={{
+              backgroundColor: 'var(--color-foreground)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              {children}
+            </div>
         }
       </div>
     </FlyInAnimation>
@@ -47,6 +54,14 @@ export const GallerySection = ({ titleRef }) => {
       </FlyInAnimation>
       <div className='gallery-grid'>
         {children}
+        <Link to='/gallery'>
+          <GalleryItem>
+            <span style={{ opacity: 0.5, display: 'flex', alignItems: 'center', lineHeight: 1 }}>
+              See more
+              <ChevronRightIcon style={{ width: 16, height: 16, marginLeft: 8 }} />
+            </span>
+          </GalleryItem>
+        </Link>
       </div>
     </div>
   )

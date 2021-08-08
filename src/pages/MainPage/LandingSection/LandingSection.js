@@ -2,11 +2,14 @@ import React from 'react';
 import './LandingSection.css';
 
 import { SwitchingText } from './SwitchingText';
+import { Footer } from '../../../components/Footer/Footer'
 
-export const LandingSection = () => {
-  const animatedTextClassName = `text-name text-name-animation`;
+export const LandingSection = ({ animate }) => {
+  const animatedTextClassName = `text-name ${animate ? 'text-name-animation' : ''}`;
+
   return (
     <div id='landing'>
+      <Footer />
       <div id='title'>
         <span className='text-title unselectable' style={{ fontSize: '56px' }}>
           hello
@@ -32,11 +35,12 @@ export const LandingSection = () => {
   );
 }
 
-export const LandingSectionMobile = () => {
-  const animatedTextClassName = `text-name text-name-animation`;
+export const LandingSectionMobile = ({ animate }) => {
+  const animatedTextClassName = `text-name ${animate ? 'text-name-animation' : ''}`;
 
   return (
     <div id='landing'>
+      <Footer />
       <div id='title'>
         <span className='text-title unselectable' style={{ fontSize: '36px' }}>
           hello

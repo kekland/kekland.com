@@ -29,8 +29,12 @@ export const AppPage = () => {
     return (
       <Page title={'My app'}>
         <div className='page app-page'>
-          <ModalNavbar title={'App'} useScrollEffects />
+          <ModalNavbar
+            icon={<div style={{ width: 20, height: 20 }} />}
+            title={'App'}
+            useScrollEffects />
           <div style={{ height: '100vh' }} />
+          <FooterSection />
         </div>
       </Page>
     )

@@ -1,5 +1,6 @@
 #landing {
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -13,7 +14,7 @@
 }
 
 .text-name {
-  color: #000;
+  color: var(--color-primary); 
 }
 
 .text-name-animation {

@@ -38,6 +38,6 @@ const makeRequest = async (req) => {
 
 
 export const loadPhotos = async (skip) => {
-  const data = await makeRequest(`/photos?_sort=takenAt:desc&_limit=9&_start=${skip}`)
+  const data = await makeRequest(`/photos?_limit=9&_start=${skip}`)
   return data
 }
