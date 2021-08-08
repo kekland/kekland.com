@@ -11,8 +11,10 @@
  */
 
 module.exports = {
-  '0 * * * *': () => {
-    strapi.config.functions.repos();
+  '*/10 * * * *': () => {
     strapi.config.functions.photos();
   },
+  '0 * * * *': () => {
+    strapi.config.functions.repos();
+  }
 };
