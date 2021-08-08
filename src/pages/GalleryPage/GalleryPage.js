@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { loadPhotos } from '../../api/api'
 import { ModalNavbar } from '../../components/Navbar/Navbar'
+import { Page } from '../../components/Page/Page'
 import { FooterSection } from '../MainPage/FooterSection/FooterSection'
 import './GalleryPage.css'
 
@@ -65,20 +66,22 @@ export const GalleryPage = () => {
   };
 
   return (
-    <div className='page'>
-      <ModalNavbar title='Gallery' parent='/' useScrollEffects />
-      <div style={{ height: 240 }} />
-      <div className='column' style={{ padding: 24 }}>
-        <div className='content-width'>
-          <GalleryGrid style={{ marginTop: 40 }}>
-            {listItems.map((v) => (
-              <GalleryItem url={v.thumbnailUrl} id={v.id} key={v.id} />
-            ))}
-          </GalleryGrid>
+    <Page title={'My gallery'}>
+      <div className='page'>
+        <ModalNavbar title='Gallery' parent='/' useScrollEffects />
+        <div style={{ height: 240 }} />
+        <div className='column' style={{ padding: 24 }}>
+          <div className='content-width'>
+            <GalleryGrid style={{ marginTop: 40 }}>
+              {listItems.map((v) => (
+                <GalleryItem url={v.thumbnailUrl} id={v.id} key={v.id} />
+              ))}
+            </GalleryGrid>
+          </div>
         </div>
+        <FooterSection />
       </div>
-      <FooterSection />
-    </div>
+    </Page>
   );
 }
 

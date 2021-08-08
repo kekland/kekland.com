@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { Footer } from '../../components/Footer/Footer'
 import { Navbar } from '../../components/Navbar/Navbar'
+import { Page } from '../../components/Page/Page'
 import { useWindowSize } from '../../hooks/useWindowSize'
 import { AboutMeSection } from './AboutMeSection/AboutMeSection'
 import { ContactMeSection } from './ContactMeSection/ContactMeSection'
@@ -20,19 +21,21 @@ export const MainPage = () => {
   const contactsRef = useRef()
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <Background withArrows={!isSmall} animate />
-      <Navbar refs={[aboutMeRef, portfolioRef, contactsRef]} />
-      <Footer />
-      {
-        isSmall ? <LandingSectionMobile /> : <LandingSection />
-      }
-      <AboutMeSection titleRef={aboutMeRef} />
-      <MyAppsSection titleRef={portfolioRef} />
-      <MyReposSection />
-      <GallerySection />
-      <ContactMeSection titleRef={contactsRef} />
-      <FooterSection />
-    </div>
+    <Page title={'My portfolio'}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Background withArrows={!isSmall} animate />
+        <Navbar refs={[aboutMeRef, portfolioRef, contactsRef]} />
+        <Footer />
+        {
+          isSmall ? <LandingSectionMobile /> : <LandingSection />
+        }
+        <AboutMeSection titleRef={aboutMeRef} />
+        <MyAppsSection titleRef={portfolioRef} />
+        <MyReposSection />
+        <GallerySection />
+        <ContactMeSection titleRef={contactsRef} />
+        <FooterSection />
+      </div>
+    </Page>
   )
 }

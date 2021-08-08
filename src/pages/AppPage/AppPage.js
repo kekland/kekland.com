@@ -17,6 +17,7 @@ import { FlyInAnimation } from '../../components/FlyInAnimation/FlyInAnimation'
 import { useWindowSize } from '../../hooks/useWindowSize'
 import { Anchor } from '../../components/Anchor/Anchor'
 import { useGetAppQuery } from '../../redux/api'
+import { Page } from '../../components/Page/Page'
 
 export const AppPage = () => {
   const { id } = useParams()
@@ -26,114 +27,118 @@ export const AppPage = () => {
 
   if (!data) {
     return (
-      <div className='page app-page'>
-        <ModalNavbar title={'App'} useScrollEffects />
-        <div style={{ height: '100vh' }} />
-      </div>
+      <Page title={'My app'}>
+        <div className='page app-page'>
+          <ModalNavbar title={'App'} useScrollEffects />
+          <div style={{ height: '100vh' }} />
+        </div>
+      </Page>
     )
   }
 
   return (
-    <div className='page app-page'>
-      <ModalNavbar
-        icon={<img src={getImageUrl(data.icon)} width='20px' height='20px' />}
-        title={data.title}
-        useScrollEffects
-        preferredBackLocation='/'
-      />
-      <div style={{ height: 280 }} />
-      <div className='app-page-content content-width'>
-        <div className='app-page-info'>
-          <FlyInAnimation>
-            <div className='text-title' style={{ opacity: 0.5, fontSize: 24 }}>
-              description
-            </div>
-          </FlyInAnimation>
-          <FlyInAnimation delay={100}>
-            <ReactMarkdown>
-              {data.body}
-            </ReactMarkdown>
-          </FlyInAnimation>
-          <br />
-          <FlyInAnimation delay={200}>
-            <div style={{ display: 'flex' }}>
-              {
-                data.iframeUrl ?
-                  <Anchor href={data.iframeUrl} style={{ marginRight: 16 }}>
-                    <IconDesktop className='icon app-page-icon' />
-                  </Anchor> : null
-              }
-              {
-                data.repositoryUrl ?
-                  <Anchor href={data.repositoryUrl}>
-                    <IconGithub className='icon app-page-icon' />
-                  </Anchor> : null
-              }
-            </div>
-          </FlyInAnimation>
-          <br />
+    <Page title={data.title}>
+      <div className='page app-page'>
+        <ModalNavbar
+          icon={<img src={getImageUrl(data.icon)} width='20px' height='20px' />}
+          title={data.title}
+          useScrollEffects
+          preferredBackLocation='/'
+        />
+        <div style={{ height: 280 }} />
+        <div className='app-page-content content-width'>
+          <div className='app-page-info'>
+            <FlyInAnimation>
+              <div className='text-title' style={{ opacity: 0.5, fontSize: 24 }}>
+                description
+              </div>
+            </FlyInAnimation>
+            <FlyInAnimation delay={100}>
+              <ReactMarkdown>
+                {data.body}
+              </ReactMarkdown>
+            </FlyInAnimation>
+            <br />
+            <FlyInAnimation delay={200}>
+              <div style={{ display: 'flex' }}>
+                {
+                  data.iframeUrl ?
+                    <Anchor href={data.iframeUrl} style={{ marginRight: 16 }}>
+                      <IconDesktop className='icon app-page-icon' />
+                    </Anchor> : null
+                }
+                {
+                  data.repositoryUrl ?
+                    <Anchor href={data.repositoryUrl}>
+                      <IconGithub className='icon app-page-icon' />
+                    </Anchor> : null
+                }
+              </div>
+            </FlyInAnimation>
+            <br />
+            {
+              data.appStoreUrl ?
+                <FlyInAnimation delay={300}>
+                  <Anchor href={data.appStoreUrl}>
+                    <img
+                      alt='Get it on App Store'
+                      src={AppStoreIcon}
+                      height={48}
+                    />
+                  </Anchor>
+                </FlyInAnimation>
+                : null
+            }
+            <br />
+            {
+              data.googlePlayUrl ?
+                <FlyInAnimation delay={300}>
+                  <Anchor href={data.googlePlayUrl}>
+                    <img
+                      alt='Get it on Google Play'
+                      src={GooglePlayIcon}
+                      height={48}
+                    />
+                  </Anchor>
+                </FlyInAnimation>
+                : null
+            }
+          </div>
           {
-            data.appStoreUrl ?
-              <FlyInAnimation delay={300}>
-                <Anchor href={data.appStoreUrl}>
-                  <img
-                    alt='Get it on App Store'
-                    src={AppStoreIcon}
-                    height={48}
-                  />
-                </Anchor>
+            (data.iframeUrl && width > 450) ?
+              <FlyInAnimation delay={100}>
+                <br />
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'flex-end',
+                  justifyContent: 'flex-end'
+                }}>
+                  <PhoneFrame width={300} style={{ transform: 'translate(-12px, 0)' }} showContents={iframeLoaded}>
+                    <iframe src={data.iframeUrl} onLoad={() => setIframeLoaded(true)} />
+                  </PhoneFrame>
+                  <Anchor href={data.iframeUrl}>
+                    <IconExpand
+                      className='icon app-page-icon'
+                      style={{
+                        transform: 'translate(0px, 12px)'
+                      }}
+                    />
+                  </Anchor>
+                </div>
+                <div style={{ height: 64 }} />
               </FlyInAnimation>
-              : null
-          }
-          <br />
-          {
-            data.googlePlayUrl ?
-              <FlyInAnimation delay={300}>
-                <Anchor href={data.googlePlayUrl}>
-                  <img
-                    alt='Get it on Google Play'
-                    src={GooglePlayIcon}
-                    height={48}
-                  />
-                </Anchor>
-              </FlyInAnimation>
-              : null
+              : <div />
           }
         </div>
-        {
-          (data.iframeUrl && width > 450) ?
-            <FlyInAnimation delay={100}>
-              <br />
-              <div style={{
-                display: 'flex',
-                alignItems: 'flex-end',
-                justifyContent: 'flex-end'
-              }}>
-                <PhoneFrame width={300} style={{ transform: 'translate(-12px, 0)' }} showContents={iframeLoaded}>
-                  <iframe src={data.iframeUrl} onLoad={() => setIframeLoaded(true)} />
-                </PhoneFrame>
-                <Anchor href={data.iframeUrl}>
-                  <IconExpand
-                    className='icon app-page-icon'
-                    style={{
-                      transform: 'translate(0px, 12px)'
-                    }}
-                  />
-                </Anchor>
-              </div>
-              <div style={{ height: 64 }} />
-            </FlyInAnimation>
-            : <div />
-        }
+        <FlyInAnimation>
+          <GalleryGridFromUrlList
+            className='content-width'
+            urls={data.images.map(getImageUrl)}
+          />
+        </FlyInAnimation>
+        <div style={{ height: 16 }} />
+        <FooterSection />
       </div>
-      <FlyInAnimation>
-        <GalleryGridFromUrlList
-          className='content-width'
-          urls={data.images.map(getImageUrl)}
-        />
-      </FlyInAnimation>
-      <div style={{ height: 16 }} />
-      <FooterSection />
-    </div>
+    </Page>
   )
 }

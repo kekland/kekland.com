@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router'
 import { ModalNavbar } from '../../components/Navbar/Navbar'
+import { Page } from '../../components/Page/Page'
 import { useGetSinglePhotoAutoQuery } from '../../redux/api'
 import './PhotoPage.css'
 
@@ -23,12 +24,14 @@ export const PhotoPage = () => {
   }
 
   return (
-    <div className='page photo-page'>
-      <div className='photo-page-navbar'>
-        <ModalNavbar backgroundColor='transparent' preferredBackLocation='/gallery' />
+    <Page title='My photo'>
+      <div className='page photo-page'>
+        <div className='photo-page-navbar'>
+          <ModalNavbar backgroundColor='transparent' preferredBackLocation='/gallery' />
+        </div>
+        {thumbnailChild}
+        {child}
       </div>
-      {thumbnailChild}
-      {child}
-    </div>
+    </Page>
   )
 }

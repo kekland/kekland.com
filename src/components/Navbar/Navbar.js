@@ -65,7 +65,8 @@ export const ModalNavbar = ({ icon, title, preferredBackLocation, backgroundColo
   let scrollEffect = useScrollEffects ? Math.max(1.0 - scroll / scrollEffectHeight, 0.0) : 0.0
   scrollEffect = Math.min(scrollEffect, 1.0)
 
-  const marginLeft = width - 1024 >= 40 ? 0 : Math.max(40, width - 1024)
+  const collapsedMarginLeft = width - 1024 >= 40 ? 0 : 24
+  const marginLeft = width - 1024 >= 40 ? 0 : 40
 
   const goBack = () => {
     if (history.action === 'POP' || history.action === 'REPLACE') {
@@ -88,7 +89,7 @@ export const ModalNavbar = ({ icon, title, preferredBackLocation, backgroundColo
       <div className='content-width' style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
         <span style={{
           position: 'absolute',
-          marginLeft: marginLeft * (1.0 - scrollEffect),
+          marginLeft: collapsedMarginLeft + (marginLeft - collapsedMarginLeft) * (1.0 - scrollEffect),
           transform: `scale(${scrollEffect * 2.0 + 1.0}) translateY(${scrollEffect * 60}px)`,
           transformOrigin: 'top left',
           display: 'flex',
@@ -104,7 +105,7 @@ export const ModalNavbar = ({ icon, title, preferredBackLocation, backgroundColo
           {title}
         </span>
       </div>
-      <div style={{position: 'absolute', right: 32, height: 24}}>
+      <div style={{ position: 'absolute', right: 32, height: 24 }}>
         {actions}
       </div>
     </div>
