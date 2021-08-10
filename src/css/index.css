@@ -4,7 +4,7 @@ html {
 
 .App-light {
   --color-background: #fafafa;
-  --color-background-image: rgba(0, 0, 0, 0.05);
+  --color-background-image: rgba(0, 0, 0, 0.03);
   --color-background-darker: #f0f0f0;
   --color-action: #ececec;
   --color-foreground: #ffffff;
@@ -14,7 +14,7 @@ html {
 
 .App-dark {
   --color-background: #0a0a0a;
-  --color-background-image: rgba(255, 255, 255, 0.05);
+  --color-background-image: rgba(255, 255, 255, 0.025);
   --color-background-darker: #000000;
   --color-action: #000000;
   --color-foreground: #000000;

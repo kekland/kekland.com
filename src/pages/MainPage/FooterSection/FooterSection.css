@@ -1,4 +1,5 @@
 .footer-section {
+  z-index: 2;
   background-color: var(--color-background-darker);
   width: 100%;
   height: 128px;
