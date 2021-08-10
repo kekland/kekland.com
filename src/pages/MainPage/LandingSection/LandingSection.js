@@ -5,21 +5,33 @@ import { SwitchingText } from './SwitchingText';
 import { Footer } from '../../../components/Footer/Footer'
 
 export const LandingSection = ({ animate }) => {
-  const animatedTextClassName = `text-name ${animate ? 'text-name-animation' : ''}`;
+  const animatedClassName = `text-title unselectable ${animate ? 'landing-animation' : ''}`;
 
   return (
     <div id='landing'>
       <Footer />
       <div id='title'>
-        <span className='text-title unselectable' style={{ fontSize: '56px' }}>
+        <span className={animatedClassName} style={{
+          fontSize: '56px',
+          animationDelay: '0.8s',
+        }}>
           hello
-          <span className={animatedTextClassName}>.</span>
+          <span className='text-name'>.</span>
         </span>
-        <span className='text-title unselectable' style={{ fontSize: '80px' }}>
+        <span className={animatedClassName} style={{
+          fontSize: '80px',
+          animationDelay: '0.9s',
+        }}>
           I&apos;m&nbsp;
-          <span className={animatedTextClassName}>Erzhan</span>
+          <span className='text-name'>Erzhan</span>
         </span>
-        <span style={{ fontSize: '16px', opacity: 0.5, alignSelf: 'flex-end' }}>
+        <span className={animate ? 'landing-switching-text-animation' : ''}
+          style={{
+            fontSize: '16px',
+            alignSelf: 'flex-end',
+            opacity: animate ? 0 : 0.5,
+            animationDelay: '1.0s',
+          }}>
           &gt; a&nbsp;
           <b>
             <SwitchingText labels={[

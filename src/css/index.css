@@ -7,7 +7,7 @@ html {
   --color-action: #ececec;
   --color-foreground: #ffffff;
   --color-text: #000000;
-  --color-primary: #FFBE0B;
+  --color-primary: #CA054D;
 }
 
 .App-dark {
@@ -15,7 +15,7 @@ html {
   --color-action: #000000;
   --color-foreground: #000000;
   --color-text: #ffffff;
-  --color-primary: #efaf00;
+  --color-primary: #CA054D;
 }
 
 body {

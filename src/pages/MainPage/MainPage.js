@@ -29,7 +29,7 @@ export const MainPage = () => {
   return (
     <Page title={'My portfolio'}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Background withArrows={!isSmall} animate={animate} />
+        <Background skipAnimation={!animate} />
         <Navbar refs={[aboutMeRef, portfolioRef, contactsRef]} />
         {
           isSmall ?

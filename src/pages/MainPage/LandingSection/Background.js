@@ -1,40 +1,74 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useWindowScroll } from '../../../hooks/useWindowScroll';
 import { useWindowSize } from '../../../hooks/useWindowSize';
 
 import './Background.css';
+import { draw, generateArcs, hexToRgbA } from './CanvasAnimation';
 
-import { ReactComponent as LandingArrow } from '../../../icons/landing-arrow.svg';
+// eslint-disable-next-line no-unused-vars
+export const Background = ({ skipAnimation }) => {
+  const scroll = useWindowScroll()
+  const [arcs, setArcs] = useState([])
+  const ref = useRef()
 
-
-export const Background = ({ animate, withArrows }) => {
   const windowSize = useWindowSize();
 
-  const width = windowSize.width;
-  const height = windowSize.height;
+  const width = windowSize.width - 32
+  const height = windowSize.height - 32
 
-  const size = Math.min(width, height * 2);
+  const minSide = Math.min(width, height);
 
-  const circleStyle = {
-    width: size,
-    height: size,
-    left: -size / 2,
-    top: (-size / 2),
-  }
+  useEffect(() => {
+    setArcs(
+      generateArcs({
+        num: 100,
+        minRadius: minSide / 3,
+        maxRadius: minSide / 2,
+        minAngle: 0.3 * Math.PI,
+        maxAngle: Math.PI,
+        minPeriod: 5,
+        maxPeriod: 15,
+        colors: [
+          hexToRgbA('#CA054D'),
+          hexToRgbA('#084C61'),
+        ],
+      }),
+    )
+  }, [windowSize])
 
+  useEffect(() => {
+    let animationFrameId
+
+    const _draw = () => {
+      draw({
+        arcs,
+        ctx: ref.current.getContext('2d'),
+        width,
+        height,
+        fadeIn: !skipAnimation,
+      })
+
+      animationFrameId = window.requestAnimationFrame(_draw)
+    }
+
+    animationFrameId = window.requestAnimationFrame(_draw)
+    return () => window.cancelAnimationFrame(animationFrameId)
+  }, [arcs])
+
+  const translateY = Math.min(scroll * 0.5, 40)
   return (
     <div id='landing-background'>
-      <div id='circle' className={animate ? 'circle-animation' : ''} style={circleStyle} />
-      <div className={`outer-circle ${animate ? 'outer-circle-animation' : ''}`} style={circleStyle} />
-      {
-        withArrows ? <LandingArrow className='landing-arrow' style={{
-          position: 'absolute',
-          left: width / 2,
-          top: 160.0,
-          bottom: 0,
-          height: (size / 2.5),
-          opacity: 1.0,
-        }} /> : <></>
-      }
+      <canvas
+        id='landing-canvas'
+        ref={ref}
+        width={width}
+        height={height}
+        style={{
+          transform: `translateY(${translateY}px)`,
+          opacity: 1.0 - (translateY / 120),
+        }}
+      >
+      </canvas>
     </div>
   );
 }

@@ -12,57 +12,6 @@
   pointer-events: none;
 }
 
-#circle {
-  position: absolute;
-  border-radius: 50%;
-  background-color: var(--color-primary);
-  z-index: 0;
-  transition: background-color ease-in-out 0.3s;
-}
-
-.circle-animation {
-  animation: circle-flyin cubic-bezier(0.85, 0, 0.15, 1) 1s;
-  animation-fill-mode: forwards;
-}
-
-.outer-circle {
-  position: absolute;
-  border-radius: 50%;
-  background-color: var(--color-primary);
-  z-index: 0;
-  transform: scale(1.1);
-  transition: background-color ease-in-out 0.3s;
-  opacity: 0.5;
-}
-
-.outer-circle-animation {
-  animation: outer-circle-flyout cubic-bezier(0.85, 0, 0.15, 1) 500ms;
-  animation-delay: 700ms;
-  animation-fill-mode: forwards;
-}
-
-.landing-arrow {
-  position: absolute;
-  z-index: 0;
-  -webkit-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
-.landing-arrow > * {
-  fill: var(--color-primary) !important;
-  transform-origin: center;
-  transition: fill ease-in-out 0.3s;
-}
-
-@keyframes circle-flyin {
-  from { transform: scale(3); }
-  to { transform: scale(1); }
-}
-
-@keyframes outer-circle-flyout {
-  from { transform: scale(1); }
-  to { transform: scale(1.1); }
+#landing-canvas {
+  padding: 16px;
 }
