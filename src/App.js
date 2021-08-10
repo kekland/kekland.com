@@ -11,6 +11,7 @@ import { PhotoPage } from './pages/PhotoPage/PhotoPage';
 import { GalleryPage } from './pages/GalleryPage/GalleryPage';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import BackgroundImage from './icons/background.svg'
 
 function App() {
   const theme = useSelector((state) => state.theme.value)
@@ -31,6 +32,10 @@ function App() {
     <div className={`App App-${theme}`}>
       <ScrollToTop />
       <div className='App-background' />
+      <div className='App-background-image' style={{
+        maskImage: `url(${BackgroundImage})`,
+        WebkitMaskImage: `url(${BackgroundImage})`,
+      }} />
       <Switch>
         <Route exact path='/'>
           <MainPage />

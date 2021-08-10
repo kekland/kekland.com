@@ -3,9 +3,9 @@ import './Card.css'
 
 import { ReactComponent as ChevronForwardOutline } from '../../icons/chevron-forward-outline.svg'
 
-export const Card = ({ title, description, accentColor, img, children }) => {
+export const Card = ({ title, description, accentColor, img, children, style }) => {
   return (
-    <div className='card'>
+    <div className='card' style={style}>
       {
         img ? <img className='card-image' src={img} /> : <></>
       }

@@ -13,14 +13,14 @@ export const LandingSection = ({ animate }) => {
       <div id='title'>
         <span className={animatedClassName} style={{
           fontSize: '56px',
-          animationDelay: '0.8s',
+          animationDelay: '0.4s',
         }}>
           hello
           <span className='text-name'>.</span>
         </span>
         <span className={animatedClassName} style={{
           fontSize: '80px',
-          animationDelay: '0.9s',
+          animationDelay: '0.5s',
         }}>
           I&apos;m&nbsp;
           <span className='text-name'>Erzhan</span>
@@ -30,7 +30,7 @@ export const LandingSection = ({ animate }) => {
             fontSize: '16px',
             alignSelf: 'flex-end',
             opacity: animate ? 0 : 0.5,
-            animationDelay: '1.0s',
+            animationDelay: '0.6s',
           }}>
           &gt; a&nbsp;
           <b>

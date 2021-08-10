@@ -87,13 +87,13 @@ export const draw = ({ arcs, ctx, width, height, fadeIn }) => {
       endPoint.y,
     )
 
-    const radius = fadeIn ? arc.radius * _t : arc.radius
+    const transparentStop = fadeIn ? 1.0 - 0.1 * _t : 0.9
 
-    gradient.addColorStop(0.9, `rgba(${arc.color.r}, ${arc.color.g}, ${arc.color.b}, 0)`)
+    gradient.addColorStop(transparentStop, `rgba(${arc.color.r}, ${arc.color.g}, ${arc.color.b}, 0)`)
     gradient.addColorStop(1.0, `rgba(${arc.color.r}, ${arc.color.g}, ${arc.color.b}, 1)`)
 
     ctx.beginPath()
-    ctx.arc(width / 2, height / 2, radius, startAngle, arc.angle + startAngle)
+    ctx.arc(width / 2, height / 2, arc.radius, startAngle, arc.angle + startAngle)
     ctx.strokeStyle = gradient
     ctx.lineWidth = 2
     ctx.stroke()

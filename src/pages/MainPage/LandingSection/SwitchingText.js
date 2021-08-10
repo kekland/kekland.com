@@ -10,7 +10,7 @@ export const SwitchingText = ({ labels }) => {
       if (newIndex === labels.length) newIndex = 0
 
       setCurrentIndex(newIndex)
-    }, 750)
+    }, 1000)
 
     return () => clearTimeout(timeout)
   }, [currentIndex, labels])

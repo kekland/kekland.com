@@ -4,6 +4,8 @@ html {
 
 .App-light {
   --color-background: #fafafa;
+  --color-background-image: rgba(0, 0, 0, 0.05);
+  --color-background-darker: #f0f0f0;
   --color-action: #ececec;
   --color-foreground: #ffffff;
   --color-text: #000000;
@@ -12,6 +14,8 @@ html {
 
 .App-dark {
   --color-background: #0a0a0a;
+  --color-background-image: rgba(255, 255, 255, 0.05);
+  --color-background-darker: #000000;
   --color-action: #000000;
   --color-foreground: #000000;
   --color-text: #ffffff;
@@ -46,6 +50,17 @@ body {
   transition: background-color ease-in-out 0.3s;
 }
 
+.App-background-image {
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-background-image);
+  mask-repeat: repeat;
+  mask-size: 512px;
+  transition: background-color ease-in-out 0.3s;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -76,9 +91,12 @@ code {
 }
 
 .section {
+  z-index: 1;
   box-sizing: border-box;
   width: min(100%, 1024px);
-  padding: 24px;
+  padding: 36px;
+  background-color: var(--color-background);
+  transition: background-color ease-in-out 0.3s;
 }
 
 .section-grid {
