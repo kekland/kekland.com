@@ -91,13 +91,16 @@ export const draw = ({ arcs, ctx, width, height, fadeIn }) => {
       endPoint.y,
     )
 
-    const transparentStop = fadeIn ? 1.0 - 0.1 * _t : 0.9
+    const color = Object.assign({}, arc.color)
 
-    gradient.addColorStop(transparentStop, `rgba(${arc.color.r}, ${arc.color.g}, ${arc.color.b}, 0)`)
-    gradient.addColorStop(1.0, `rgba(${arc.color.r}, ${arc.color.g}, ${arc.color.b}, 1)`)
+    const transparentStop = fadeIn ? 1.0 - 0.1 * _t : 0.9
+    const transparency = 1
+
+    gradient.addColorStop(transparentStop, `rgba(${color.r}, ${color.g}, ${color.b}, 0)`)
+    gradient.addColorStop(1.0, `rgba(${color.r}, ${color.g}, ${color.b}, ${transparency})`)
 
     ctx.beginPath()
-    ctx.arc(width / 2, height / 2, arc.radius, startAngle, arc.angle + startAngle)
+    ctx.arc(width / 2, height / 2, arc.radius, startAngle, endAngle)
     ctx.strokeStyle = gradient
     ctx.lineWidth = 2
     ctx.stroke()

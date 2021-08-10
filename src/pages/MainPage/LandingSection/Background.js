@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useWindowScroll } from '../../../hooks/useWindowScroll';
 import { useWindowSize } from '../../../hooks/useWindowSize';
 
 import './Background.css';
@@ -7,7 +6,6 @@ import { draw, generateArcs, hexToRgbA } from './CanvasAnimation';
 
 // eslint-disable-next-line no-unused-vars
 export const Background = ({ skipAnimation }) => {
-  const scroll = useWindowScroll()
   const [data, setData] = useState([])
   const ref = useRef()
 
@@ -59,7 +57,6 @@ export const Background = ({ skipAnimation }) => {
     return () => window.cancelAnimationFrame(animationFrameId)
   }, [data, windowSize])
 
-  const translateY = Math.min(scroll * 0.5, 40)
   return (
     <div id='landing-background'>
       <canvas
@@ -67,10 +64,6 @@ export const Background = ({ skipAnimation }) => {
         ref={ref}
         width={width}
         height={height}
-        style={{
-          transform: `translateY(${translateY}px)`,
-          opacity: 1.0 - (translateY / 120),
-        }}
       >
       </canvas>
     </div>
