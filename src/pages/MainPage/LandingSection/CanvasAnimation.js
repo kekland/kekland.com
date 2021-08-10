@@ -34,7 +34,11 @@ export const generateArcs = ({
     arcs.push({ radius, period, t, angle, color })
   }
 
-  return arcs
+  return {
+    arcs: arcs,
+    minRadius,
+    maxRadius,
+  }
 }
 
 const easing = {
