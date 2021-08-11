@@ -1,4 +1,6 @@
 import React from 'react'
+import './AboutMeSection.css'
+
 import ReactMarkdown from 'react-markdown';
 import { FlyInAnimation } from '../../../components/FlyInAnimation/FlyInAnimation';
 import { useGetContentQuery } from '../../../redux/api';
@@ -24,7 +26,7 @@ export const AboutMeSection = ({ titleRef }) => {
       <FlyInAnimation>
         {
           data?.aboutMe ?
-            <ReactMarkdown>
+            <ReactMarkdown className='about-me-text'>
               {
                 data.aboutMe.replace('{age}', age)
               }
