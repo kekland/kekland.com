@@ -13,6 +13,18 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import BackgroundImage from './icons/background.svg'
 
+const AppBackground = () => {
+  return (
+    <>
+      <div className='App-background' />
+      <div className='App-background-image' style={{
+        maskImage: `url(${BackgroundImage})`,
+        WebkitMaskImage: `url(${BackgroundImage})`,
+      }} />
+    </>
+  )
+}
+
 function App() {
   const theme = useSelector((state) => state.theme.value)
 
@@ -31,11 +43,7 @@ function App() {
   return (
     <div className={`App App-${theme}`}>
       <ScrollToTop />
-      <div className='App-background' />
-      <div className='App-background-image' style={{
-        maskImage: `url(${BackgroundImage})`,
-        WebkitMaskImage: `url(${BackgroundImage})`,
-      }} />
+      <AppBackground />
       <Switch>
         <Route exact path='/'>
           <MainPage />
