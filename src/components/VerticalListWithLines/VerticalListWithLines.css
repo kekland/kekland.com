@@ -1,0 +1,38 @@
+@media only screen and (max-width: 768px) {
+  .vertical-list-with-lines {
+    padding-left: 0 !important;
+    grid-template-columns: 1fr !important;
+  }
+  .vertical-line {
+    display: none;
+  }
+}
+
+.vertical-list-with-lines {
+  display: grid;
+  grid-template-columns: 51px 1fr;
+  padding-left: 16px;
+}
+
+.vertical-line {
+  width: 100%;
+  height: 100px;
+  opacity: 0.1;
+}
+
+.vertical-line-middle > * {
+  width: 100%;
+  height: 100%;
+  fill: var(--color-text);
+}
+
+.vertical-line-end > * {
+  width: 51px;
+  height: 51px;
+  fill: var(--color-text);
+}
+
+.vertical-line-content {
+  display: flex;
+  align-items: center;
+}

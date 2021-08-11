@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "educations",
+  "info": {
+    "name": "education",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "url": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "grade": {
+      "type": "string"
+    }
+  }
+}

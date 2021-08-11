@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "experiences",
+  "info": {
+    "name": "experience"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "url": {
+      "type": "string"
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "technologies": {
+      "type": "string"
+    }
+  }
+}

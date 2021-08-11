@@ -31,7 +31,9 @@ export const api = createApi({
           return fetch(`/photos/?gphotosId=${arg}`)
         }
       }
-    })
+    }),
+    getWorkExperience: builder.query({ query: () => `/experiences?_sort=startDate:desc` }),
+    getEducation: builder.query({ query: () => `/educations?_sort=startDate:desc` }),
   }),
 })
 
@@ -45,4 +47,6 @@ export const {
   useGetSinglePhotoByGooglePhotosIdQuery,
   useGetPhotosPaginatedQuery,
   useGetSinglePhotoAutoQuery,
+  useGetWorkExperienceQuery,
+  useGetEducationQuery,
 } = api

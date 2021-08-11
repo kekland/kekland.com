@@ -37,7 +37,7 @@ export const Navbar = ({ refs }) => {
   }
 
   return (
-    <div className='navbar text-title unselectable' style={{ backgroundColor: isTransparent ? 'transparent' : 'var(--color-background)' }}>
+    <div className='navbar text-title unselectable' style={{ backgroundColor: isTransparent ? 'transparent' : 'var(--color-section-background)' }}>
       <div style={{ flex: 1 }} />
       {
         Object.keys(items).map((item) =>

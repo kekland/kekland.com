@@ -4,6 +4,8 @@ import { Page } from '../../components/Page/Page'
 import { useWindowSize } from '../../hooks/useWindowSize'
 import { AboutMeSection } from './AboutMeSection/AboutMeSection'
 import { ContactMeSection } from './ContactMeSection/ContactMeSection'
+import { EducationSection } from './EducationSection/EducationSection'
+import { ExperienceSection } from './ExperienceSection/ExperienceSection'
 import { FooterSection } from './FooterSection/FooterSection'
 import { GallerySection } from './GallerySection/GallerySection'
 import { Background } from './LandingSection/Background'
@@ -41,6 +43,10 @@ export const MainPage = () => {
         <MyAppsSection titleRef={portfolioRef} />
         <div style={{height: 32}} />
         <MyReposSection />
+        <div style={{height: 32}} />
+        <ExperienceSection />
+        <div style={{height: 32}} />
+        <EducationSection />
         <div style={{height: 32}} />
         <GallerySection />
         <div style={{height: 32}} />
