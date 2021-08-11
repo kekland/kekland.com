@@ -67,6 +67,9 @@ export const Background = ({ skipAnimation }) => {
         ref={ref}
         width={width}
         height={height}
+        style={{
+          transform: `scale(${Math.min(1.5, 1 + Math.pow(scroll / 360.0, 2))})`
+        }}
       >
       </canvas>
     </div>
