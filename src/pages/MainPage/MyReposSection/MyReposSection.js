@@ -5,8 +5,10 @@ import { Card, ShimmerCard } from '../../../components/Card/Card'
 import { ReactComponent as StarIcon } from '../../../icons/star-outline.svg'
 import { FlyInAnimation } from '../../../components/FlyInAnimation/FlyInAnimation'
 import { useSelector } from 'react-redux'
-import { Anchor } from '../../../components/Anchor/Anchor'
+import { Anchor, AnchorGithub } from '../../../components/Anchor/Anchor'
 import { useGetReposQuery } from '../../../redux/api'
+
+import { ReactComponent as ChevronRightIcon } from '../../../icons/chevron-forward-outline.svg'
 
 const RepoCard = ({ data }) => {
   const theme = useSelector((state) => state.theme.value)
@@ -57,7 +59,12 @@ export const MyReposSection = () => {
   return (
     <div className='section'>
       <FlyInAnimation>
-        <p className='text-title text-primary'>my repositories</p>
+        <AnchorGithub>
+          <p className='text-title text-primary' style={{ display: 'flex', alignItems: 'baseline' }}>
+            my top repositories
+            <ChevronRightIcon style={{ width: 24, height: 24, marginLeft: 12 }} />
+          </p>
+        </AnchorGithub>
       </FlyInAnimation>
       <div className='repos section-grid'>
         {children}

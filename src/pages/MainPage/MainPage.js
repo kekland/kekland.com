@@ -37,10 +37,15 @@ export const MainPage = () => {
             <LandingSection animate={animate} />
         }
         <AboutMeSection titleRef={aboutMeRef} />
+        <div style={{height: 32}} />
         <MyAppsSection titleRef={portfolioRef} />
+        <div style={{height: 32}} />
         <MyReposSection />
+        <div style={{height: 32}} />
         <GallerySection />
+        <div style={{height: 32}} />
         <ContactMeSection titleRef={contactsRef} />
+        <div style={{height: 32}} />
         <FooterSection />
       </div>
     </Page>

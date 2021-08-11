@@ -1,3 +1,22 @@
+@media only screen and (max-width: 768px) {
+  .about-me-contents {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.about-me-contents {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-gap: 32px;
+}
+
 .about-me-text {
   font-size: 20px;
+}
+
+.about-me-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 32px;
+  background-color: var(--color-background-darker);
 }

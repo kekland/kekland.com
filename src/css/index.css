@@ -95,6 +95,7 @@ code {
   width: min(100%, 1024px);
   padding: 36px;
   background-color: var(--color-background);
+  border-radius: 36px;
   transition: background-color ease-in-out 0.3s;
 }
 

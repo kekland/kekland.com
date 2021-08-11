@@ -4,6 +4,7 @@ import './AboutMeSection.css'
 import ReactMarkdown from 'react-markdown';
 import { FlyInAnimation } from '../../../components/FlyInAnimation/FlyInAnimation';
 import { useGetContentQuery } from '../../../redux/api';
+import { getImageUrl } from '../../../api/api';
 
 const second = 1000
 const minute = second * 60
@@ -23,17 +24,37 @@ export const AboutMeSection = ({ titleRef }) => {
       <FlyInAnimation>
         <p className='text-title text-primary'>about me</p>
       </FlyInAnimation>
-      <FlyInAnimation>
-        {
-          data?.aboutMe ?
-            <ReactMarkdown className='about-me-text'>
+      <div className='about-me-contents'>
+        <FlyInAnimation>
+          {
+            <div className='about-me-image'>
               {
-                data.aboutMe.replace('{age}', age)
+                data?.photo ?
+                  <img
+                    src={getImageUrl(data.photo)}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      borderRadius: 32,
+                    }}
+                  /> : null
               }
-            </ReactMarkdown> :
-            <div className='shimmer-item' style={{ width: 200, height: 18 }} />
-        }
-      </FlyInAnimation>
+            </div>
+          }
+        </FlyInAnimation>
+        <FlyInAnimation>
+          {
+            data?.aboutMe ?
+              <ReactMarkdown className='about-me-text'>
+                {
+                  data.aboutMe.replace('{age}', age)
+                }
+              </ReactMarkdown> :
+              <div className='shimmer-item' style={{ width: 200, height: 18 }} />
+          }
+        </FlyInAnimation>
+      </div>
     </div>
   );
 }
