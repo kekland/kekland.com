@@ -4,7 +4,7 @@ html {
 
 .App-light {
   --color-background: #fafafa;
-  --color-background-image: rgba(0, 0, 0, 0.03);
+  --color-background-image: rgba(0, 0, 0, 0.04);
   --color-background-darker: #f0f0f0;
   --color-action: #ececec;
   --color-foreground: #ffffff;
