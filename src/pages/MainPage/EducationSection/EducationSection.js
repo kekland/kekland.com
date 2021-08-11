@@ -38,7 +38,7 @@ const EducationItem = ({ data, minified }) => {
             </span>
           </div>
           {
-            !minified ? <div className='experience-item-duration' style={{ opacity: 0.5 }}>
+            !minified ? <div className='experience-item-duration' style={{ opacity: 0.5, fontSize: 14 }}>
               <span>
                 {dates}
               </span>
