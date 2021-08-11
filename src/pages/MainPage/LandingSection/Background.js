@@ -50,7 +50,7 @@ export const Background = ({ skipAnimation }) => {
         width,
         height,
         fadeIn: !skipAnimation,
-        transparentStopMultiplier: 1.0 + scroll / 360.0,
+        transparentStopMultiplier: 1.0 + scroll / 600.0,
       })
 
       animationFrameId = window.requestAnimationFrame(_draw)
@@ -68,7 +68,7 @@ export const Background = ({ skipAnimation }) => {
         width={width}
         height={height}
         style={{
-          transform: `scale(${Math.min(1.5, 1 + Math.pow(scroll / 360.0, 2))})`
+          transform: `scale(${Math.min(1.5, 1 + Math.pow(scroll / 600.0, 2))})`
         }}
       >
       </canvas>

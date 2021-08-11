@@ -107,8 +107,8 @@ export const draw = ({
       transparentStop *= transparentStopMultiplier
     }
 
-    if (transparentStop > 1) {
-      transparentStop = 1
+    if (transparentStop > 1.0) {
+      transparentStop = 1.0
     }
 
     gradient.addColorStop(transparentStop, `rgba(${color.r}, ${color.g}, ${color.b}, 0)`)
