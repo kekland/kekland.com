@@ -116,6 +116,7 @@ export const GalleryGridFromUrlList = ({ style, urls, className }) => {
       {
         urls.map((v, i) => {
           const components = v.split('/')
+
           return (
             <GalleryItem
               url={v}

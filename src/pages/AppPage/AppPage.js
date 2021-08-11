@@ -133,13 +133,11 @@ export const AppPage = () => {
               </FlyInAnimation>
               : <div />
           }
-        </div>
-        <FlyInAnimation>
           <GalleryGridFromUrlList
-            className='content-width'
+            className='app-page-gallery'
             urls={data.images.map(getImageUrl)}
           />
-        </FlyInAnimation>
+        </div>
         <div style={{ height: 16 }} />
         <FooterSection />
       </div>
