@@ -76,7 +76,7 @@ const ExperienceItem = ({ data, minified }) => {
               <span>
                 {dates}
               </span>
-              <span style={{ fontSize: 14 }}>
+              <span style={{ fontSize: 14, opacity: 0.5 }}>
                 {durationString}
               </span>
             </div> : null
