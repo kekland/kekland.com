@@ -43,7 +43,7 @@ export const AboutMeSection = ({ titleRef }) => {
             </div>
           }
         </FlyInAnimation>
-        <FlyInAnimation>
+        <FlyInAnimation delay={100}>
           {
             data?.aboutMe ?
               <ReactMarkdown className='about-me-text'>

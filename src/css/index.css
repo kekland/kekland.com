@@ -3,7 +3,8 @@ html {
 }
 
 .App-light {
-  --color-background: #fafafa;
+  --color-background: #f7f7f7;
+  --color-section-background: #fafafa;
   --color-background-image: rgba(0, 0, 0, 0.04);
   --color-background-darker: #f0f0f0;
   --color-action: #ececec;
@@ -13,7 +14,8 @@ html {
 }
 
 .App-dark {
-  --color-background: #0a0a0a;
+  --color-background: #070707;
+  --color-section-background: #0a0a0a;
   --color-background-image: rgba(255, 255, 255, 0.025);
   --color-background-darker: #000000;
   --color-action: #000000;
@@ -93,8 +95,8 @@ code {
   z-index: 1;
   box-sizing: border-box;
   width: min(100%, 1024px);
-  padding: 36px;
-  background-color: var(--color-background);
+  padding: 0px 32px 32px 32px;
+  background-color: var(--color-section-background);
   border-radius: 36px;
   transition: background-color ease-in-out 0.3s;
 }
