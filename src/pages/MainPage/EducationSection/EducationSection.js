@@ -45,7 +45,7 @@ const EducationItem = ({ data, minified }) => {
             </div> : null
           }
           <div style={{ width: 32 }} />
-          <ArrowRight className='icon' width={24} />
+          <ArrowRight className='icon' width={24} style={{ opacity: 0.5 }} />
         </div>
       </FlyInAnimation>
     </Anchor>
