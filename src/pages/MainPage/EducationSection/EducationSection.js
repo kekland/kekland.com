@@ -14,39 +14,41 @@ const EducationItem = ({ data, minified }) => {
   const dates = `${startDateString} — ${endDateString}`
 
   return (
-    <Anchor href={data.url} style={{ width: '100%' }}>
-      <div className='experience-item'>
-        <img src={getImageUrl(data.icon)} className='experience-item-image' />
-        <div style={{ width: 16 }} />
-        <div className='experience-item-text'>
-          <div className='text-title' style={{ fontSize: minified ? 18 : 24 }}>
-            {data.title}
-          </div>
-          <span style={{ opacity: 0.5, fontSize: minified ? 14 : 16 }}>
-            {data.description}
-          </span>
-          <div style={{ height: 4 }} />
-          {
-            minified ?
-              <span style={{ opacity: 0.25, fontSize: 14 }}>
-                {dates}
-              </span> : null
-          }
-          <span style={{ opacity: 0.25, fontSize: minified ? 14 : 16 }}>
-            {data.location} {data.grade ? `· ${data.grade}` : null}
-          </span>
-        </div>
-        {
-          !minified ? <div className='experience-item-duration' style={{ opacity: 0.5 }}>
-            <span>
-              {dates}
+    <FlyInAnimation>
+      <Anchor href={data.url} style={{ width: '100%' }}>
+        <div className='experience-item'>
+          <img src={getImageUrl(data.icon)} className='experience-item-image' />
+          <div style={{ width: 16 }} />
+          <div className='experience-item-text'>
+            <div className='text-title' style={{ fontSize: minified ? 18 : 24 }}>
+              {data.title}
+            </div>
+            <span style={{ opacity: 0.5, fontSize: minified ? 14 : 16 }}>
+              {data.description}
             </span>
-          </div> : null
-        }
-        <div style={{ width: 32 }} />
-        <ArrowRight className='icon' width={24} />
-      </div>
-    </Anchor>
+            <div style={{ height: 4 }} />
+            {
+              minified ?
+                <span style={{ opacity: 0.25, fontSize: 14 }}>
+                  {dates}
+                </span> : null
+            }
+            <span style={{ opacity: 0.25, fontSize: minified ? 14 : 16 }}>
+              {data.location} {data.grade ? `· ${data.grade}` : null}
+            </span>
+          </div>
+          {
+            !minified ? <div className='experience-item-duration' style={{ opacity: 0.5 }}>
+              <span>
+                {dates}
+              </span>
+            </div> : null
+          }
+          <div style={{ width: 32 }} />
+          <ArrowRight className='icon' width={24} />
+        </div>
+      </Anchor>
+    </FlyInAnimation>
   )
 }
 
@@ -70,11 +72,9 @@ export const EducationSection = () => {
       <FlyInAnimation>
         <p className='text-title text-primary'>my education</p>
       </FlyInAnimation>
-      <FlyInAnimation>
-        <VerticalListWithLines gap={16}>
-          {children}
-        </VerticalListWithLines>
-      </FlyInAnimation>
+      <VerticalListWithLines gap={16}>
+        {children}
+      </VerticalListWithLines>
     </div>
   )
 }

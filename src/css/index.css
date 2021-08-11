@@ -97,6 +97,12 @@ code {
   width: min(100%, 1024px);
 }
 
+@media only screen and (max-width: 1024px) {
+  .section {
+    border-radius: 0 !important;
+  }
+}
+
 .section {
   z-index: 1;
   box-sizing: border-box;
