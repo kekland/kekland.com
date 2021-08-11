@@ -4,7 +4,7 @@ import './LandingSection.css';
 import { SwitchingText } from './SwitchingText';
 import { Footer } from '../../../components/Footer/Footer'
 
-export const LandingSection = ({ animate }) => {
+export const LandingSection = ({ animate, fontSizeMultiplier }) => {
   const animatedClassName = `text-title unselectable ${animate ? 'landing-animation' : ''}`;
 
   return (
@@ -12,14 +12,14 @@ export const LandingSection = ({ animate }) => {
       <Footer />
       <div id='title'>
         <span className={animatedClassName} style={{
-          fontSize: '56px',
+          fontSize: 56 * (fontSizeMultiplier ?? 1),
           animationDelay: '0.4s',
         }}>
           hello
           <span className='text-name'>.</span>
         </span>
         <span className={animatedClassName} style={{
-          fontSize: '80px',
+          fontSize: 80 * (fontSizeMultiplier ?? 1),
           animationDelay: '0.5s',
         }}>
           I&apos;m&nbsp;
@@ -48,32 +48,7 @@ export const LandingSection = ({ animate }) => {
 }
 
 export const LandingSectionMobile = ({ animate }) => {
-  const animatedTextClassName = `text-name ${animate ? 'text-name-animation' : ''}`;
-
   return (
-    <div id='landing'>
-      <Footer />
-      <div id='title'>
-        <span className='text-title unselectable' style={{ fontSize: '36px' }}>
-          hello
-          <span className={animatedTextClassName}>.</span>
-        </span>
-        <span className='text-title unselectable' style={{ fontSize: '64px' }}>
-          I&apos;m&nbsp;
-          <span className={animatedTextClassName}>Erzhan</span>
-        </span>
-        <span style={{ fontSize: '16px', opacity: 0.5, alignSelf: 'flex-end' }}>
-          &gt; a&nbsp;
-          <b>
-            <SwitchingText labels={[
-              'software engineer',
-              'designer',
-              'robotics enthusiast',
-              'photographer',
-            ]} />
-          </b>
-        </span>
-      </div>
-    </div>
-  );
+    <LandingSection animate={animate} fontSizeMultiplier={64 / 80} />
+  )
 }

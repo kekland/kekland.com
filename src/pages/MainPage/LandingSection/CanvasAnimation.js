@@ -70,7 +70,7 @@ export const draw = ({
   const time = Date.now()
   const timePassed = (time - initTime) / 1000
 
-  const _t = easing.easeOutQuad(Math.min(1, timePassed / 1))
+  const _t = easing.easeOutQuad(Math.min(1, timePassed))
 
   for (const arc of arcs) {
     const t = (arc.t + (timePassed / arc.period)) % 1
@@ -114,8 +114,14 @@ export const draw = ({
     gradient.addColorStop(transparentStop, `rgba(${color.r}, ${color.g}, ${color.b}, 0)`)
     gradient.addColorStop(1.0, `rgba(${color.r}, ${color.g}, ${color.b}, ${transparency})`)
 
+    let radius = arc.radius
+
+    if(fadeIn) {
+      radius *= _t
+    }
+
     ctx.beginPath()
-    ctx.arc(width / 2, height / 2, arc.radius, startAngle, endAngle)
+    ctx.arc(width / 2, height / 2, radius, startAngle, endAngle)
     ctx.strokeStyle = gradient
     ctx.lineWidth = 2
     ctx.stroke()
