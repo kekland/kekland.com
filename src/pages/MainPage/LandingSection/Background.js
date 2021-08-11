@@ -50,6 +50,7 @@ export const Background = ({ skipAnimation }) => {
         width,
         height,
         fadeIn: !skipAnimation,
+        transparentStopMultiplier: 1.0 + scroll / 360.0,
       })
 
       animationFrameId = window.requestAnimationFrame(_draw)
@@ -57,9 +58,8 @@ export const Background = ({ skipAnimation }) => {
 
     animationFrameId = window.requestAnimationFrame(_draw)
     return () => window.cancelAnimationFrame(animationFrameId)
-  }, [data, windowSize])
+  }, [data, windowSize, scroll])
 
-  const translateY = Math.min(scroll * 0.5, 40)
   return (
     <div id='landing-background'>
       <canvas
@@ -67,10 +67,6 @@ export const Background = ({ skipAnimation }) => {
         ref={ref}
         width={width}
         height={height}
-        style={{
-          transform: `translateY(${translateY}px)`,
-          opacity: 1.0 - (translateY / 120),
-        }}
       >
       </canvas>
     </div>

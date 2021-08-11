@@ -53,7 +53,14 @@ const getPointOnArc = ({ cx, cy, radius, angle }) => {
 }
 
 let initTime
-export const draw = ({ arcs, ctx, width, height, fadeIn }) => {
+export const draw = ({
+  arcs,
+  ctx,
+  width,
+  height,
+  fadeIn,
+  transparentStopMultiplier,
+}) => {
   if (!initTime) {
     initTime = Date.now()
   }
@@ -93,8 +100,16 @@ export const draw = ({ arcs, ctx, width, height, fadeIn }) => {
 
     const color = Object.assign({}, arc.color)
 
-    const transparentStop = fadeIn ? 1.0 - 0.1 * _t : 0.9
+    let transparentStop = fadeIn ? 1.0 - 0.2 * _t : 0.8
     const transparency = 1
+
+    if (transparentStopMultiplier != null) {
+      transparentStop *= transparentStopMultiplier
+    }
+
+    if (transparentStop > 1) {
+      transparentStop = 1
+    }
 
     gradient.addColorStop(transparentStop, `rgba(${color.r}, ${color.g}, ${color.b}, 0)`)
     gradient.addColorStop(1.0, `rgba(${color.r}, ${color.g}, ${color.b}, ${transparency})`)
