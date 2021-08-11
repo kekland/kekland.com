@@ -14,8 +14,8 @@ const EducationItem = ({ data, minified }) => {
   const dates = `${startDateString} — ${endDateString}`
 
   return (
-    <FlyInAnimation>
-      <Anchor href={data.url} style={{ width: '100%' }}>
+    <Anchor href={data.url} style={{ width: '100%' }}>
+      <FlyInAnimation>
         <div className='experience-item'>
           <img src={getImageUrl(data.icon)} className='experience-item-image' />
           <div style={{ width: 16 }} />
@@ -47,8 +47,8 @@ const EducationItem = ({ data, minified }) => {
           <div style={{ width: 32 }} />
           <ArrowRight className='icon' width={24} />
         </div>
-      </Anchor>
-    </FlyInAnimation>
+      </FlyInAnimation>
+    </Anchor>
   )
 }
 
