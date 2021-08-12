@@ -14,13 +14,19 @@ import { useEffect } from 'react';
 import BackgroundImage from './icons/background.svg'
 
 const AppBackground = () => {
+  // Disable `maskImage` in Firefox because of performance
+  const isFirefox = typeof InstallTrigger !== 'undefined';
+
   return (
     <>
       <div className='App-background' />
-      <div className='App-background-image' style={{
-        maskImage: `url(${BackgroundImage})`,
-        WebkitMaskImage: `url(${BackgroundImage})`,
-      }} />
+      {
+        !isFirefox ?
+          <div className='App-background-image' style={{
+            maskImage: `url(${BackgroundImage})`,
+            WebkitMaskImage: `url(${BackgroundImage})`,
+          }} /> : null
+      }
     </>
   )
 }
