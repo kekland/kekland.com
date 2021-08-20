@@ -12,6 +12,7 @@ import { GalleryPage } from './pages/GalleryPage/GalleryPage';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import BackgroundImage from './icons/background.svg'
+import { MusicPage } from './pages/MusicPage/MusicPage';
 
 const AppBackground = () => {
   // Disable `maskImage` in Firefox because of performance
@@ -56,6 +57,7 @@ function App() {
         </Route>
         <Route path='/app/:id' component={AppPage} />
         <Route exact path='/gallery' component={GalleryPage} />
+        <Route exact path='/music' component={MusicPage} />
         <Route path='/photo/:id' component={PhotoPage} />
         <Route component={NotFoundPage} />
       </Switch>

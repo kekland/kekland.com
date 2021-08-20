@@ -4,6 +4,10 @@
   overflow: hidden;
   align-items: center;
   padding: 32px;
+}
+
+.last-played-section > * {
+  z-index: 1;
   color: white;
 }
 
@@ -15,15 +19,15 @@
   bottom: 0;
   background-size: cover;
   background-position: center;
-  filter: blur(10px) brightness(10%);
+  filter: blur(10px) brightness(20%);
   transform: scale(1.25);
-  z-index: -1;
+  z-index: 0;
 }
 
 .last-played-image {
   width: 100px;
   height: 100px;
-  border-radius: 16px;
+  background-size: cover;
 }
 
 .last-played-title {

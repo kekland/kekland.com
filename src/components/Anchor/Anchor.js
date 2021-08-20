@@ -45,3 +45,13 @@ export const AnchorEmail = ({ children, style }) => {
     </Anchor>
   )
 }
+
+export const AnchorLastFm = ({ children, style }) => {
+  const { data } = useGetContentQuery()
+
+  return (
+    <Anchor href={data?.lastFmUrl} style={style}>
+      {children}
+    </Anchor>
+  )
+}

@@ -41,6 +41,10 @@ body {
   fill: var(--color-text);
 }
 
+.icon>* {
+  color: var(--color-text);
+}
+
 .App {
   position: relative;
   color: var(--color-text);
@@ -69,8 +73,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 .unselectable {
@@ -131,6 +134,6 @@ a:visited {
   cursor: auto;
 }
 
-body > * {
+body>* {
   overflow-anchor: none;
 }

@@ -3,7 +3,8 @@ import { useGetLastPlayedQuery } from '../../../redux/api'
 import './LastPlayedSection.css'
 
 import { ReactComponent as ChevronRightIcon } from '../../../icons/chevron-forward-outline.svg'
-import { Anchor } from '../../../components/Anchor/Anchor'
+import { Link } from 'react-router-dom'
+import { FlyInAnimation } from '../../../components/FlyInAnimation/FlyInAnimation'
 
 const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' })
 
@@ -17,7 +18,7 @@ const units = {
   second: 1000
 }
 
-const getRelativeTime = (d1, d2 = new Date()) => {
+export const getRelativeTime = (d1, d2 = new Date()) => {
   const elapsed = d1 - d2
 
   for (const u in units) {
@@ -43,38 +44,48 @@ export const LastPlayedSection = () => {
   }
 
   return (
-    <Anchor href={data.url} className='section last-played-section'>
+    <Link to='/music' className='section last-played-section'>
       <div className='last-played-section-background' style={{
         backgroundImage: `url(${data.imageUrl})`,
       }} />
-      <div className='last-played-image' style={{
-        background: `url(${data.imageUrl})`,
-      }} />
+      <FlyInAnimation>
+        <div className='last-played-image' style={{
+          backgroundImage: `url(${data.imageUrl})`,
+        }} />
+      </FlyInAnimation>
       <div style={{ width: 32 }} />
       <div className='last-played-title'>
         {
           !playedAt ? (
-            <div style={{ fontSize: 12, color: 'var(--color-primary)' }}>
-              listening now
-            </div>
+            <FlyInAnimation delay={50}>
+              <div style={{ fontSize: 12, color: 'var(--color-primary)' }}>
+                listening now
+              </div>
+            </FlyInAnimation>
           ) : null
         }
-        <div className='text-title' style={{ fontSize: 24 }}>
-          {data.track}
-        </div>
-        <div style={{ opacity: 0.5 }}>
-          {data.artist} — {data.albumName}
-        </div>
+        <FlyInAnimation delay={100}>
+          <div className='text-title' style={{ fontSize: 24 }}>
+            {data.track}
+          </div>
+        </FlyInAnimation>
+        <FlyInAnimation delay={150}>
+          <div style={{ opacity: 0.5 }}>
+            {data.artist}
+          </div>
+        </FlyInAnimation>
         {
           playedAt ? (
-            <div style={{ fontSize: 12, opacity: 0.5, marginTop: 8 }}>
-              listened {getRelativeTime(playedAt)}
-            </div>
+            <FlyInAnimation delay={200}>
+              <div style={{ fontSize: 12, opacity: 0.5, marginTop: 8 }}>
+                listened {getRelativeTime(playedAt)}
+              </div>
+            </FlyInAnimation>
           ) : null
         }
       </div>
       <div style={{ width: 32 }} />
       <ChevronRightIcon style={{ width: 32 }} />
-    </Anchor>
+    </Link>
   )
 }

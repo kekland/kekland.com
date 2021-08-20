@@ -1,0 +1,53 @@
+.music-page {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.music-page-content {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.music-page-background {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-position: center;
+  background-size: cover;
+  filter: blur(10px) brightness(10%);
+  transform: scale(1.25);
+  z-index: 0;
+}
+
+.music-page-image {
+  width: 160px;
+  height: 160px;
+  background-size: cover;
+}
+
+.music-page-actions {
+  position: absolute;
+  z-index: 1;
+  right: 16px;
+  bottom: 16px;
+}
+
+.music-page-actions>* {
+  opacity: 0.5;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.music-page-actions>*:hover {
+  opacity: 1.0;
+}

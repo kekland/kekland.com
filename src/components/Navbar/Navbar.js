@@ -84,7 +84,7 @@ export const ModalNavbar = ({ icon, title, preferredBackLocation, backgroundColo
       alignItems: 'center'
     }}>
       <div style={{ position: 'absolute', left: 16, height: 24, cursor: 'pointer' }} onClick={goBack}>
-        <ArrowBackIcon style={{ width: 24 }} />
+        <ArrowBackIcon style={{ width: 24 }} className='icon' />
       </div>
       <div className='content-width' style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
         <span style={{
