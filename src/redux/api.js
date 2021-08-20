@@ -34,7 +34,8 @@ export const api = createApi({
     }),
     getWorkExperience: builder.query({ query: () => `/experiences?_sort=startDate:desc` }),
     getEducation: builder.query({ query: () => `/educations?_sort=startDate:desc` }),
-    getLastPlayed: builder.query({ query: () => `/last-playing` }),
+    getLastPlayed: builder.query({ query: () => `/scrobbles?_limit=1`, transformResponse: (v) => v[0] }),
+    getScrobbles: builder.query({ query: () => `/scrobbles?_sort=id:desc` }),
     getTechnologies: builder.query({query: () => `/technologies?_sort=proficiency:desc`}),
   }),
 })
@@ -52,5 +53,6 @@ export const {
   useGetWorkExperienceQuery,
   useGetEducationQuery,
   useGetLastPlayedQuery,
+  useGetScrobblesQuery,
   useGetTechnologiesQuery,
 } = api

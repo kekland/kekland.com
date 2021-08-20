@@ -27,7 +27,6 @@ const proficiencyToColor = (proficiency) => {
 }
 
 const TechnologyItem = ({ data }) => {
-  console.log(data)
   return (
     <div className='technology-item'>
       <img className='technology-item-image' src={getImageUrl(data.image)} />

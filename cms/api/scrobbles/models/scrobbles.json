@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scrobbles",
+  "info": {
+    "name": "Scrobbles",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "artist": {
+      "type": "string"
+    },
+    "track": {
+      "type": "string"
+    },
+    "album": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "listenedAt": {
+      "type": "datetime"
+    },
+    "isListening": {
+      "type": "boolean"
+    }
+  }
+}

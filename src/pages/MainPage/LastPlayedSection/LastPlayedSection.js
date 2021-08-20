@@ -38,9 +38,9 @@ export const LastPlayedSection = () => {
 
   if (!data) return <></>
 
-  let playedAt
-  if (data.playedAt !== null) {
-    playedAt = Date.parse(data.playedAt)
+  let listenedAt
+  if (data.listenedAt !== null) {
+    listenedAt = Date.parse(data.listenedAt)
   }
 
   return (
@@ -54,7 +54,7 @@ export const LastPlayedSection = () => {
       <div style={{ width: 32 }} />
       <div className='last-played-title'>
         {
-          !playedAt ? (
+          !listenedAt ? (
             <FlyInAnimation delay={50}>
               <div style={{ fontSize: 12, color: 'var(--color-primary)' }}>
                 listening now
@@ -73,10 +73,10 @@ export const LastPlayedSection = () => {
           </div>
         </FlyInAnimation>
         {
-          playedAt ? (
+          listenedAt ? (
             <FlyInAnimation delay={200}>
               <div style={{ fontSize: 12, opacity: 0.5, marginTop: 8 }}>
-                listened {getRelativeTime(playedAt)}
+                listened {getRelativeTime(listenedAt)}
               </div>
             </FlyInAnimation>
           ) : null

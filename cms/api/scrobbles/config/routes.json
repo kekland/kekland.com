@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/scrobbles",
+      "handler": "scrobbles.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/scrobbles/count",
+      "handler": "scrobbles.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/scrobbles/:id",
+      "handler": "scrobbles.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/scrobbles",
+      "handler": "scrobbles.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/scrobbles/:id",
+      "handler": "scrobbles.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/scrobbles/:id",
+      "handler": "scrobbles.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
