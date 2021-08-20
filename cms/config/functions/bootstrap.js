@@ -13,4 +13,5 @@
 module.exports = () => {
   strapi.config.functions.repos();
   strapi.config.functions.photos();
+  strapi.config.functions.music();
 };

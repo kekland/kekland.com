@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "last_playings",
+  "info": {
+    "name": "LastPlaying",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "artist": {
+      "type": "string"
+    },
+    "track": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "playedAt": {
+      "type": "datetime"
+    },
+    "url": {
+      "type": "string"
+    },
+    "nowPlaying": {
+      "type": "boolean"
+    },
+    "albumName": {
+      "type": "string"
+    }
+  }
+}

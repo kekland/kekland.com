@@ -17,6 +17,10 @@ module.exports = ({ env }) => ({
     username: env('INST_USERNAME', ''),
     password: env('INST_PASSWORD', ''),
   },
+  lastFm: {
+    apiKey: env('LASTFM_API_KEY', ''),
+    username: env('LASTFM_USERNAME', ''),
+  },
   admin: {
     auth: {
       secret: env('ADMIN_JWT_SECRET', 'bbca155a2dd0b4378b4f56292c508f78'),

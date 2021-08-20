@@ -16,5 +16,8 @@ module.exports = {
   },
   '0 * * * *': () => {
     strapi.config.functions.repos();
-  }
+  },
+  '* * * * *': () => {
+    strapi.config.functions.music();
+  },
 };
