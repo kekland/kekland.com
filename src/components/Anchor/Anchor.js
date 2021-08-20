@@ -1,13 +1,14 @@
 import React from 'react'
 import { useGetContentQuery } from '../../redux/api'
 
-export const Anchor = ({ href, children, style, download }) => {
+export const Anchor = ({ href, children, style, download, className }) => {
   return (
     <a
       href={href}
       target={download ? '_self' : '_blank'}
       rel='noreferrer'
       style={style}
+      className={className}
       download={download}
     >
       {children}

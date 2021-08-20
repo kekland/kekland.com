@@ -10,6 +10,7 @@ import { FooterSection } from './FooterSection/FooterSection'
 import { GallerySection } from './GallerySection/GallerySection'
 import { Background } from './LandingSection/Background'
 import { LandingSection, LandingSectionMobile } from './LandingSection/LandingSection'
+import { LastPlayedSection } from './LastPlayedSection/LastPlayedSection'
 import { MyAppsSection } from './MyAppsSection/MyAppsSection'
 import { MyReposSection } from './MyReposSection/MyReposSection'
 
@@ -49,6 +50,8 @@ export const MainPage = () => {
         <EducationSection />
         <div style={{height: 32}} />
         <GallerySection />
+        <div style={{height: 32}} />
+        <LastPlayedSection />
         <div style={{height: 32}} />
         <ContactMeSection titleRef={contactsRef} />
         <div style={{height: 32}} />

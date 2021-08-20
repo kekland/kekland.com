@@ -34,6 +34,7 @@ export const api = createApi({
     }),
     getWorkExperience: builder.query({ query: () => `/experiences?_sort=startDate:desc` }),
     getEducation: builder.query({ query: () => `/educations?_sort=startDate:desc` }),
+    getLastPlayed: builder.query({ query: () => `/last-playing` })
   }),
 })
 
@@ -49,4 +50,5 @@ export const {
   useGetSinglePhotoAutoQuery,
   useGetWorkExperienceQuery,
   useGetEducationQuery,
+  useGetLastPlayedQuery,
 } = api

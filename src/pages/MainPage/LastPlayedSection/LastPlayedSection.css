@@ -1,0 +1,41 @@
+.last-played-section {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  padding: 32px;
+  color: white;
+}
+
+.last-played-section-background {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px) brightness(10%);
+  transform: scale(1.25);
+  z-index: -1;
+}
+
+.last-played-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 16px;
+}
+
+.last-played-title {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.last-played-title>* {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: nowrap;
+}
