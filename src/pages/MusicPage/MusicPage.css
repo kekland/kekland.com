@@ -44,10 +44,6 @@
   transition: all 0.15s ease-in-out;
 }
 
-.music-page-item-active {
-
-}
-
 .music-page-item-disabled {
   opacity: 0.5;
   transform: scale(0.75);

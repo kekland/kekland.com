@@ -80,8 +80,8 @@ export const MusicPage = () => {
       setScroll(scrollRef.current.scrollLeft)
     }
 
-    scrollRef.current.addEventListener("scroll", handleScroll);
-    return () => scrollRef.current.removeEventListener("scroll", handleScroll)
+    scrollRef.current?.addEventListener("scroll", handleScroll);
+    return () => scrollRef.current?.removeEventListener("scroll", handleScroll)
   }, [])
 
   let children = []

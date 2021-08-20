@@ -55,7 +55,7 @@ export const TechnologiesSection = () => {
 
   let children
   if (data) {
-    children = data.map((v) => <TechnologyItem key={v} data={v} />)
+    children = data.map((v) => <TechnologyItem key={v.id} data={v} />)
   }
 
   return (

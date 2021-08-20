@@ -42,6 +42,7 @@ export const Background = ({ skipAnimation }) => {
     let animationFrameId
 
     const _draw = () => {
+      if (!ref.current) return
       if (!data.arcs) return
 
       draw({
