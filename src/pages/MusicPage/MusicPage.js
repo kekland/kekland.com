@@ -12,7 +12,7 @@ import { useWindowSize } from '../../hooks/useWindowSize'
 
 // const clamp = (n, min, max) => n > max ? max : (n < min) ? min : n
 
-const MusicItem = ({ data, opacity }) => {
+const MusicItem = ({ data, opacity, delay }) => {
   let listenedAt
   if (data.listenedAt !== null) {
     listenedAt = Date.parse(data.listenedAt)
@@ -25,24 +25,24 @@ const MusicItem = ({ data, opacity }) => {
         opacity,
         transform: `scale(${opacity})`,
       }}>
-      <FlyInAnimation>
+      <FlyInAnimation delay={delay}>
         <div className='music-page-image'
           style={{ backgroundImage: `url(${data.imageUrl})` }}
         />
       </FlyInAnimation>
       <div style={{ height: 24 }} />
-      <FlyInAnimation delay={50}>
+      <FlyInAnimation delay={50 + delay}>
         <div className='text-title' style={{ fontSize: 24 }}>
           {data.track}
         </div>
       </FlyInAnimation>
-      <FlyInAnimation delay={100}>
+      <FlyInAnimation delay={100 + delay}>
         <div style={{ opacity: 0.5 }}>
           {data.artist}
         </div>
       </FlyInAnimation>
       <div style={{ height: 12 }} />
-      <FlyInAnimation delay={150}>
+      <FlyInAnimation delay={150 + delay}>
         {
           listenedAt ? (
             <div style={{ fontSize: 12, opacity: 0.5 }}>
@@ -96,6 +96,7 @@ export const MusicPage = () => {
           key={v.id}
           data={v}
           opacity={isInView ? 1 : 0.8}
+          delay={(scrobbles.length - i - 1) * 100}
         />
       )
     })
