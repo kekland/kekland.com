@@ -8,7 +8,6 @@
 
 .last-played-section > * {
   z-index: 1;
-  color: white;
 }
 
 .last-played-section-background {
@@ -28,6 +27,7 @@
   width: 100px;
   height: 100px;
   background-size: cover;
+  border-radius: 16px;
 }
 
 .last-played-title {
