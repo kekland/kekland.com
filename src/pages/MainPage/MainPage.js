@@ -13,6 +13,7 @@ import { LandingSection, LandingSectionMobile } from './LandingSection/LandingSe
 import { LastPlayedSection } from './LastPlayedSection/LastPlayedSection'
 import { MyAppsSection } from './MyAppsSection/MyAppsSection'
 import { MyReposSection } from './MyReposSection/MyReposSection'
+import { TechnologiesSection } from './TechnologiesSection/TechnologiesSection'
 
 export const MainPage = () => {
   const [animate, setAnimate] = useState(false)
@@ -44,6 +45,8 @@ export const MainPage = () => {
         <MyAppsSection titleRef={portfolioRef} />
         <div style={{height: 32}} />
         <MyReposSection />
+        <div style={{height: 32}} />
+        <TechnologiesSection />
         <div style={{height: 32}} />
         <ExperienceSection />
         <div style={{height: 32}} />

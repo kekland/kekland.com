@@ -34,7 +34,8 @@ export const api = createApi({
     }),
     getWorkExperience: builder.query({ query: () => `/experiences?_sort=startDate:desc` }),
     getEducation: builder.query({ query: () => `/educations?_sort=startDate:desc` }),
-    getLastPlayed: builder.query({ query: () => `/last-playing` })
+    getLastPlayed: builder.query({ query: () => `/last-playing` }),
+    getTechnologies: builder.query({query: () => `/technologies?_sort=proficiency:desc`}),
   }),
 })
 
@@ -51,4 +52,5 @@ export const {
   useGetWorkExperienceQuery,
   useGetEducationQuery,
   useGetLastPlayedQuery,
+  useGetTechnologiesQuery,
 } = api

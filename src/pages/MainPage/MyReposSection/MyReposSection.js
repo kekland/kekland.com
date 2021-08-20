@@ -9,6 +9,7 @@ import { Anchor, AnchorGithub } from '../../../components/Anchor/Anchor'
 import { useGetReposQuery } from '../../../redux/api'
 
 import { ReactComponent as ChevronRightIcon } from '../../../icons/chevron-forward-outline.svg'
+import { useWindowSize } from '../../../hooks/useWindowSize'
 
 const RepoCard = ({ data }) => {
   const theme = useSelector((state) => state.theme.value)
@@ -41,9 +42,10 @@ const RepoCard = ({ data }) => {
 }
 
 export const MyReposSection = () => {
+  const { width } = useWindowSize()
   const { data } = useGetReposQuery()
 
-  const itemCount = 8
+  const itemCount = width > 768 ? 6 : 4
   let children
 
   if (data) {

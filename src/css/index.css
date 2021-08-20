@@ -122,6 +122,12 @@ code {
   grid-gap: 16px;
 }
 
+.section-grid-small {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(144px, 1fr));
+  grid-gap: 16px;
+}
+
 a {
   text-decoration: inherit;
   color: inherit;
