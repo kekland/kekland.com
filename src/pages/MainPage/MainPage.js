@@ -10,7 +10,6 @@ import { FooterSection } from './FooterSection/FooterSection'
 import { GallerySection } from './GallerySection/GallerySection'
 import { Background } from './LandingSection/Background'
 import { LandingSection, LandingSectionMobile } from './LandingSection/LandingSection'
-import { LastPlayedSection } from './LastPlayedSection/LastPlayedSection'
 import { MyAppsSection } from './MyAppsSection/MyAppsSection'
 import { MyReposSection } from './MyReposSection/MyReposSection'
 import { TechnologiesSection } from './TechnologiesSection/TechnologiesSection'
@@ -41,23 +40,25 @@ export const MainPage = () => {
             <LandingSection animate={animate} />
         }
         <AboutMeSection titleRef={aboutMeRef} />
-        <div style={{height: 32}} />
+        <div style={{ height: 32 }} />
         <MyAppsSection titleRef={portfolioRef} />
-        <div style={{height: 32}} />
+        <div style={{ height: 32 }} />
         <MyReposSection />
-        <div style={{height: 32}} />
+        <div style={{ height: 32 }} />
         <TechnologiesSection />
-        <div style={{height: 32}} />
+        <div style={{ height: 32 }} />
         <ExperienceSection />
-        <div style={{height: 32}} />
+        <div style={{ height: 32 }} />
         <EducationSection />
-        <div style={{height: 32}} />
+        <div style={{ height: 32 }} />
         <GallerySection />
-        <div style={{height: 32}} />
-        <LastPlayedSection />
-        <div style={{height: 32}} />
+        {
+          // <div style={{height: 32}} />
+          // <LastPlayedSection />
+        }
+        <div style={{ height: 32 }} />
         <ContactMeSection titleRef={contactsRef} />
-        <div style={{height: 32}} />
+        <div style={{ height: 32 }} />
         <FooterSection />
       </div>
     </Page>
