@@ -54,7 +54,7 @@ export const Navbar = ({ refs }) => {
   );
 }
 
-export const ModalNavbar = ({ icon, title, preferredBackLocation, backgroundColor, useScrollEffects, actions }) => {
+export const ModalNavbar = ({ icon, title, preferredBackLocation, backgroundColor, useScrollEffects, actions, marginLeft }) => {
   const history = useHistory()
   const { width } = useWindowSize()
 
@@ -65,8 +65,8 @@ export const ModalNavbar = ({ icon, title, preferredBackLocation, backgroundColo
   let scrollEffect = useScrollEffects ? Math.max(1.0 - scroll / scrollEffectHeight, 0.0) : 0.0
   scrollEffect = Math.min(scrollEffect, 1.0)
 
-  const collapsedMarginLeft = width - 1024 >= 40 ? 0 : 24
-  const marginLeft = width - 1024 >= 40 ? 0 : 40
+  const collapsedMarginLeft = width - 1024 >= 40 ? marginLeft : (marginLeft ?? 24)
+  const _marginLeft = width - 1024 >= 40 ? 0 : 40
 
   const goBack = () => {
     if (history.action === 'POP' || history.action === 'REPLACE') {
@@ -89,7 +89,7 @@ export const ModalNavbar = ({ icon, title, preferredBackLocation, backgroundColo
       <div className='content-width' style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
         <span style={{
           position: 'absolute',
-          marginLeft: collapsedMarginLeft + (marginLeft - collapsedMarginLeft) * (1.0 - scrollEffect),
+          marginLeft: collapsedMarginLeft + (_marginLeft - collapsedMarginLeft) * (1.0 - scrollEffect),
           transform: `scale(${scrollEffect * 2.0 + 1.0}) translateY(${scrollEffect * 60}px)`,
           transformOrigin: 'top left',
           display: 'flex',

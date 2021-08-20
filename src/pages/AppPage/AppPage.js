@@ -47,6 +47,7 @@ export const AppPage = () => {
           icon={<img src={getImageUrl(data.icon)} width='20px' height='20px' />}
           title={data.title}
           useScrollEffects
+          marginLeft={8}
           preferredBackLocation='/'
         />
         <div style={{ height: 280 }} />
