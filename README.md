@@ -2,6 +2,8 @@
 
 Check out my portfolio website [here](https://kekland.com) :)
 
+Warning: the code is subject to a clean-up soon, once I finish up the core UI (there are some duplicated CSS classes, unused styling, etc)
+
 ## Features
 
 - Automated synchronization of gallery photos from my personal Google Photos album
