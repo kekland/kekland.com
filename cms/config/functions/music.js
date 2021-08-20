@@ -22,7 +22,7 @@ module.exports = async () => {
       const name = scrobble.name;
       const albumName = scrobble.album['#text'];
 
-      const imageUrl = scrobble.image[2]['#text'];
+      const imageUrl = scrobble.image[scrobble.image.length - 1]['#text'];
       const url = scrobble.url;
 
       const date = scrobble.date ? scrobble.date.uts : null;
