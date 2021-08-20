@@ -45,7 +45,7 @@ export const LastPlayedSection = () => {
 
   return (
     <Link to='/music' className='section last-played-section'>
-      <div className='last-played-section-background' style={{ }} />
+      <div className='last-played-section-background' style={{}} />
       <FlyInAnimation>
         <div className='last-played-image' style={{
           backgroundImage: `url(${data.imageUrl})`,

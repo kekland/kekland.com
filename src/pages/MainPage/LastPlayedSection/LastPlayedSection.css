@@ -10,24 +10,12 @@
   z-index: 1;
 }
 
-.last-played-section-background {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-size: cover;
-  background-position: center;
-  filter: blur(10px) brightness(50%);
-  transform: scale(1.25);
-  z-index: 0;
-}
-
 .last-played-image {
   width: 100px;
   height: 100px;
   background-size: cover;
   border-radius: 16px;
+  z-index: 1;
 }
 
 .last-played-title {
