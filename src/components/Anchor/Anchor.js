@@ -18,14 +18,8 @@ export const Anchor = ({ href, children, style, download }) => {
 export const AnchorLinkedIn = ({ children, style }) => {
   const { data } = useGetContentQuery()
 
-  if (!data) {
-    return (
-      <></>
-    )
-  }
-
   return (
-    <Anchor href={data.linkedInUrl} style={style}>
+    <Anchor href={data?.linkedInUrl} style={style}>
       {children}
     </Anchor>
   )
@@ -34,14 +28,8 @@ export const AnchorLinkedIn = ({ children, style }) => {
 export const AnchorGithub = ({ children, style }) => {
   const { data } = useGetContentQuery()
 
-  if (!data) {
-    return (
-      <></>
-    )
-  }
-
   return (
-    <Anchor href={data.githubUrl} style={style}>
+    <Anchor href={data?.githubUrl} style={style}>
       {children}
     </Anchor>
   )
@@ -50,14 +38,8 @@ export const AnchorGithub = ({ children, style }) => {
 export const AnchorEmail = ({ children, style }) => {
   const { data } = useGetContentQuery()
 
-  if (!data) {
-    return (
-      <></>
-    )
-  }
-
   return (
-    <Anchor href={`mailto:${data.email}`} style={style}>
+    <Anchor href={data ? `mailto:${data.email}` : ''} style={style}>
       {children}
     </Anchor>
   )
