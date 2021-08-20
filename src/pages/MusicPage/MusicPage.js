@@ -66,7 +66,7 @@ export const MusicPage = () => {
   const { data: scrobbles, refetch } = useGetScrobblesQuery()
 
   useEffect(() => {
-    const id = setInterval(refetch, 5 * 1000)
+    const id = setInterval(refetch, 60 * 1000)
     return () => clearInterval(id)
   }, [])
 
