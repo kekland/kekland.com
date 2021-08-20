@@ -19,7 +19,7 @@
   bottom: 0;
   background-size: cover;
   background-position: center;
-  filter: blur(10px) brightness(20%);
+  filter: blur(10px) brightness(50%);
   transform: scale(1.25);
   z-index: 0;
 }

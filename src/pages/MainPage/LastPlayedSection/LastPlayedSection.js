@@ -32,9 +32,9 @@ export const LastPlayedSection = () => {
   const { data, refetch } = useGetLastPlayedQuery()
 
   useEffect(() => {
-    const id = setTimeout(refetch, 60 * 1000)
-    return () => clearTimeout(id)
-  }, [data])
+    const id = setInterval(refetch, 60 * 1000)
+    return () => clearInterval(id)
+  }, [])
 
   if (!data) return <></>
 
