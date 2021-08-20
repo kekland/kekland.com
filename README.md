@@ -12,6 +12,8 @@ Check out my portfolio website [here](https://kekland.com) :)
 
 - Google Analytics support
 
+- Syncing last scrobbled track from Last.fm
+
 - Embedding application previews in `iframe`s (e.g. Flutter Web application)
 
 - Light/dark theme
