@@ -45,14 +45,16 @@ export const Background = ({ skipAnimation }) => {
       if (!ref.current) return
       if (!data.arcs) return
 
-      draw({
-        arcs: data.arcs,
-        ctx: ref.current.getContext('2d'),
-        width,
-        height,
-        fadeIn: !skipAnimation,
-        transparentStopMultiplier: 1.0 + scroll / 600.0,
-      })
+      if (document.readyState === 'complete') {
+        draw({
+          arcs: data.arcs,
+          ctx: ref.current.getContext('2d'),
+          width,
+          height,
+          fadeIn: !skipAnimation,
+          transparentStopMultiplier: 1.0 + scroll / 600.0,
+        })
+      }
 
       animationFrameId = window.requestAnimationFrame(_draw)
     }
