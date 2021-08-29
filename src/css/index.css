@@ -2,6 +2,10 @@ html {
   scroll-behavior: auto;
 }
 
+:root {
+  color-scheme: light;
+}
+
 .App-light {
   --color-background: #f7f7f7;
   --color-section-background: #fafafa;

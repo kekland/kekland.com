@@ -40,7 +40,7 @@
   opacity: 0.5;
   transition: all ease-in-out 0.15s;
   cursor: pointer;
-  margin-right: 32px;
+  margin-right: 16px;
 }
 
 .navbar-moon:hover {

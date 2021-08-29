@@ -45,7 +45,10 @@ function App() {
         .getPropertyValue('--color-background')
 
       // Set background color of `html` item
-      document.querySelector('html').style.backgroundColor = color
+      const html = document.querySelector('html')
+      html.style.backgroundColor = color
+      html.style.colorScheme = theme
+
       localStorage.setItem('theme', theme)
     })
   }, [theme])
