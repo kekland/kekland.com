@@ -145,3 +145,5 @@ export const AppPage = () => {
     </Page>
   )
 }
+
+export default AppPage;

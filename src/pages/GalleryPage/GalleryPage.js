@@ -130,3 +130,5 @@ export const GalleryGridFromUrlList = ({ style, urls, className }) => {
     </GalleryGrid>
   )
 }
+
+export default GalleryPage;

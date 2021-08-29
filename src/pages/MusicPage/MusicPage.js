@@ -130,3 +130,5 @@ export const MusicPage = () => {
     </Page>
   )
 }
+
+export default MusicPage;

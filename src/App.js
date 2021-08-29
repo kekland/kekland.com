@@ -3,19 +3,22 @@ import React from 'react'
 import './css/index.css';
 import './css/fonts.css';
 import { Route, Switch } from 'react-router-dom';
-import { MainPage } from './pages/MainPage/MainPage';
-import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
-import { AppPage } from './pages/AppPage/AppPage';
 import ScrollToTop from './hooks/scrollToTop';
-import { PhotoPage } from './pages/PhotoPage/PhotoPage';
-import { GalleryPage } from './pages/GalleryPage/GalleryPage';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import BackgroundImage from './icons/background.svg'
-import { MusicPage } from './pages/MusicPage/MusicPage';
+import { LoadingPage } from './pages/LoadingPage/LoadingPage';
+
+// Pages
+const AppPage = React.lazy(() => import('./pages/AppPage/AppPage'))
+const GalleryPage = React.lazy(() => import('./pages/GalleryPage/GalleryPage'))
+const MainPage = React.lazy(() => import('./pages/MainPage/MainPage'))
+const MusicPage = React.lazy(() => import('./pages/MusicPage/MusicPage'))
+const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage/NotFoundPage'))
+const PhotoPage = React.lazy(() => import('./pages/PhotoPage/PhotoPage'))
 
 const AppBackground = () => {
-  // Disable `maskImage` in Firefox because of performance
+  // Disable `maskImage` in Firefox because of performance issues
   const isFirefox = typeof InstallTrigger !== 'undefined';
 
   return (
@@ -51,16 +54,16 @@ function App() {
     <div className={`App App-${theme}`}>
       <ScrollToTop />
       <AppBackground />
-      <Switch>
-        <Route exact path='/'>
-          <MainPage />
-        </Route>
-        <Route path='/app/:id' component={AppPage} />
-        <Route exact path='/gallery' component={GalleryPage} />
-        <Route exact path='/music' component={MusicPage} />
-        <Route path='/photo/:id' component={PhotoPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <React.Suspense fallback={LoadingPage}>
+        <Switch>
+          <Route exact path='/' component={MainPage} />
+          <Route path='/app/:id' component={AppPage} />
+          <Route exact path='/gallery' component={GalleryPage} />
+          <Route exact path='/music' component={MusicPage} />
+          <Route path='/photo/:id' component={PhotoPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </React.Suspense>
     </div>
   );
 }

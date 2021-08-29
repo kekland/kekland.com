@@ -1,0 +1,38 @@
+.loading-page {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.spinner {
+  position: absolute;
+  border-radius: 50%;
+  animation: spinner-animation linear 1s infinite;
+}
+
+.spinner-primary {
+  width: 72px;
+  height: 72px;
+  border-top: 2px solid var(--color-primary);
+}
+
+.spinner-secondary {
+  width: 64px;
+  height: 64px;
+  border-bottom: 2px solid var(--color-secondary);
+}
+
+@keyframes spinner-animation {
+  from {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

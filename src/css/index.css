@@ -11,6 +11,7 @@ html {
   --color-foreground: #ffffff;
   --color-text: #000000;
   --color-primary: #CA054D;
+  --color-secondary: #084C61;
   --color-hover: rgba(0, 0, 0, 0.05);
 }
 
@@ -23,6 +24,7 @@ html {
   --color-foreground: #000000;
   --color-text: #ffffff;
   --color-primary: #CA054D;
+  --color-secondary: #084C61;
   --color-hover: rgba(255, 255, 255, 0.05);
 }
 

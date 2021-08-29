@@ -35,3 +35,5 @@ export const PhotoPage = () => {
     </Page>
   )
 }
+
+export default PhotoPage;

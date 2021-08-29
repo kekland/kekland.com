@@ -9,7 +9,7 @@ export const NotFoundPage = () => {
   return (
     <div className='page not-found-page'>
       <div className='not-found-page-items'>
-        <HelpIcon className='not-found-icon' />
+        <HelpIcon className='icon not-found-icon' />
         <span className='text-title' style={{ opacity: 0.5 }}>
           Uh oh...
         </span>
@@ -26,3 +26,5 @@ export const NotFoundPage = () => {
     </div>
   )
 }
+
+export default NotFoundPage;
