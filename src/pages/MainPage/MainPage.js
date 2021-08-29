@@ -15,7 +15,7 @@ import { MyReposSection } from './MyReposSection/MyReposSection'
 import { TechnologiesSection } from './TechnologiesSection/TechnologiesSection'
 
 export const MainPage = () => {
-  const [animate, setAnimate] = useState(false)
+  const [animate, setAnimate] = useState(true)
   const size = useWindowSize()
   const isSmall = size.width < 1000
 
@@ -24,8 +24,8 @@ export const MainPage = () => {
   const contactsRef = useRef()
 
   useEffect(() => {
-    if (window.pageYOffset === 0) {
-      setAnimate(true)
+    if (window.pageYOffset !== 0) {
+      setAnimate(false)
     }
   }, [])
 
