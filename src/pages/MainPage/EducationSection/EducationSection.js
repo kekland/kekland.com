@@ -17,7 +17,7 @@ const EducationItem = ({ data, minified }) => {
     <Anchor href={data.url} style={{ width: '100%' }}>
       <FlyInAnimation>
         <div className='experience-item'>
-          <img src={getImageUrl(data.icon)} className='experience-item-image' />
+          <img loading="lazy" src={getImageUrl(data.icon)} className='experience-item-image' />
           <div style={{ width: 16 }} />
           <div className='experience-item-text'>
             <div className='text-title' style={{ fontSize: minified ? 18 : 24 }}>

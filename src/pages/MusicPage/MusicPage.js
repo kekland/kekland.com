@@ -103,7 +103,7 @@ export const MusicPage = () => {
   }
 
   return (
-    <Page title={'My music'}>
+    <Page title={'Erzhan\'s music'}>
       <div className='page App-dark'>
         <ModalNavbar title='' parent='/' backgroundColor='transparent' />
         <div className='music-page'>

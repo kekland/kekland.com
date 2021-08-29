@@ -29,7 +29,7 @@ const proficiencyToColor = (proficiency) => {
 const TechnologyItem = ({ data }) => {
   return (
     <div className='technology-item'>
-      <img className='technology-item-image' src={getImageUrl(data.image)} />
+      <img loading="lazy" className='technology-item-image' src={getImageUrl(data.image)} />
       <div style={{ width: 24 }} />
       <div className='technology-item-title'>
         <div className='text-title'>

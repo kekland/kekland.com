@@ -27,7 +27,7 @@ export const AppPage = () => {
 
   if (!data) {
     return (
-      <Page title={'My app'}>
+      <Page title={'Erzhan\'s app'}>
         <div className='page app-page'>
           <ModalNavbar
             icon={<div style={{ width: 20, height: 20 }} />}

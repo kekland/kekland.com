@@ -7,7 +7,7 @@ export const Card = ({ title, description, accentColor, img, children, style }) 
   return (
     <div className='card' style={style}>
       {
-        img ? <img className='card-image' src={img} /> : <></>
+        img ? <img loading="lazy" height={144} className='card-image' src={img} /> : <></>
       }
       <div style={{ padding: 24, boxSizing: 'border-box' }}>
         <div className='card-title' style={{ color: accentColor }}>

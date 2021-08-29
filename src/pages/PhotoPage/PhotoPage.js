@@ -24,7 +24,7 @@ export const PhotoPage = () => {
   }
 
   return (
-    <Page title='My photo'>
+    <Page title={'Erzhan\'s photo'}>
       <div className='page photo-page'>
         <div className='photo-page-navbar'>
           <ModalNavbar backgroundColor='transparent' preferredBackLocation='/gallery' />

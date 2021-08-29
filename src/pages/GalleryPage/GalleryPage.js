@@ -16,7 +16,7 @@ const GalleryItem = ({ id, url }) => {
           {
             id ?
               <Link to={`/photo/${id}`}>
-                <img src={url} className='gallery-page-img' />
+                <img loading="lazy" src={url} className='gallery-page-img' />
               </Link> :
               <div className='gallery-page-img' style={{ backgroundColor: '#bdbdbd' }} />
           }
@@ -75,7 +75,7 @@ export const GalleryPage = () => {
   const itemsPerRow = width <= 500 ? 2 : 3
 
   return (
-    <Page title={'My gallery'}>
+    <Page title={'Erzhan\'s gallery'}>
       <div className='page'>
         <ModalNavbar title='Gallery' parent='/' useScrollEffects />
         <div style={{ height: 240 }} />

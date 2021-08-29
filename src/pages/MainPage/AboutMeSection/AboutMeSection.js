@@ -30,7 +30,7 @@ export const AboutMeSection = ({ titleRef }) => {
             <div className='about-me-image'>
               {
                 data?.photo ?
-                  <img
+                  <img loading="lazy"
                     src={getImageUrl(data.photo)}
                     style={{
                       width: '100%',

@@ -30,7 +30,7 @@ export const MainPage = () => {
   }, [])
 
   return (
-    <Page title={'My portfolio'}>
+    <Page title={'Erzhan\'s portfolio'}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Background skipAnimation={!animate} />
         <Navbar refs={[aboutMeRef, portfolioRef, contactsRef]} />
